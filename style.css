@@ -1335,3 +1335,131 @@ html body a[href="donate.php"]:hover {
   color: #ff9b96 !important;
   text-shadow: 0 0 8px rgba(255, 128, 123, 0.35) !important;
 }
+
+/* ===== Compact MediaInfo table fix - two independent columns ===== */
+
+/*
+  Desired layout:
+
+  Right column:
+    1. General / כללי
+    2. Video / וידאו
+
+  Left column:
+    3. Audio / סאונד
+    4. Subtitles / כתוביות
+
+  This uses CSS columns instead of grid, because grid rows share height.
+  A long subtitles section should not push the video section downward.
+*/
+
+/* The global site CSS sets all tables to width:100%, which makes MediaInfo absurdly wide */
+html body table.mediainfo,
+html body blockquote table.mediainfo,
+html body .torrentdetails table.mediainfo,
+html body .torrent_info_row table.mediainfo {
+  width: auto !important;
+  max-width: 100% !important;
+  table-layout: auto !important;
+  margin: 0 auto !important;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+}
+
+/* Keep the MediaInfo wrapper compact, but do not create a giant full-width code block */
+html body blockquote:has(table.mediainfo),
+html body .torrentdetails blockquote:has(table.mediainfo),
+html body .torrent_table blockquote:has(table.mediainfo) {
+  width: fit-content !important;
+  max-width: 100% !important;
+  margin: 10px auto !important;
+  padding: 12px 14px !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* Main top-level MediaInfo table becomes a two-column flow */
+html body table.mediainfo > tbody,
+html body table.mediainfo > tbody > tr {
+  display: block !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+
+  column-count: 2 !important;
+  column-gap: 18px !important;
+  column-fill: auto !important;
+
+  direction: rtl !important;
+}
+
+/* Each top-level MediaInfo section becomes a block in the column flow */
+html body table.mediainfo > tbody > tr > td {
+  display: block !important;
+  width: auto !important;
+  max-width: 100% !important;
+  padding: 0 0 12px 0 !important;
+  margin: 0 !important;
+
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+  -webkit-column-break-inside: avoid !important;
+
+  direction: rtl !important;
+  vertical-align: top !important;
+}
+
+/* Force Audio/Sound to start the left column.
+   This assumes:
+   1 = General
+   2 = Video
+   3 = Audio/Sound
+   4 = Subtitles
+*/
+html body table.mediainfo > tbody > tr > td:nth-child(3) {
+  break-before: column !important;
+  page-break-before: always !important;
+  -webkit-column-break-before: always !important;
+}
+
+/* MediaInfo often contains nested tables; keep them content-sized too */
+html body table.mediainfo table,
+html body table.mediainfo table.nobr,
+html body blockquote table.mediainfo table,
+html body .torrentdetails table.mediainfo table {
+  width: auto !important;
+  max-width: 100% !important;
+  table-layout: auto !important;
+  margin: 0 !important;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+}
+
+/* Make MediaInfo cells compact instead of stretching like normal torrent tables */
+html body table.mediainfo td,
+html body table.mediainfo th,
+html body table.mediainfo table td,
+html body table.mediainfo table th {
+  width: auto !important;
+  max-width: none !important;
+  padding: 4px 10px !important;
+  line-height: 1.35 !important;
+  white-space: nowrap !important;
+  vertical-align: top !important;
+  box-sizing: border-box !important;
+}
+
+/* Keep labels close to their values */
+html body table.mediainfo td:first-child,
+html body table.mediainfo table td:first-child {
+  padding-right: 6px !important;
+  padding-left: 10px !important;
+}
+
+/* Section captions: כללי / וידאו / סאונד / כתוביות */
+html body table.mediainfo caption {
+  caption-side: top !important;
+  padding: 6px 8px !important;
+  color: var(--hb-muted) !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+}
