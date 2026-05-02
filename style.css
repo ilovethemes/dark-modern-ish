@@ -1225,3 +1225,71 @@ html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn span.btn-toolt
 
   background: transparent !important;
 }
+
+/* ===== WysiBB tooltip hard fix: show below toolbar in constrained forms ===== */
+
+/* Make all likely editor ancestors stop clipping the tooltip */
+html body #content,
+html body .thin,
+html body .widethin,
+html body form,
+html body table,
+html body tbody,
+html body tr,
+html body td,
+html body .box,
+html body .box.pad,
+html body .field_div,
+html body .textarea_wrap,
+html body #quickpost,
+html body .wysibb,
+html body .wysibb-toolbar,
+html body .wysibb-toolbar-container,
+html body .wysibb-toolbar-btn {
+  overflow: visible !important;
+}
+
+/* Keep editor/content below the tooltip layer */
+html body .wysibb {
+  position: relative !important;
+  z-index: 100 !important;
+}
+
+html body .wysibb .wysibb-toolbar {
+  position: relative !important;
+  z-index: 500 !important;
+}
+
+html body .wysibb .wysibb-text {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Put tooltip BELOW the button instead of above it */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-tooltip,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn span.btn-tooltip {
+  top: 38px !important;
+  bottom: auto !important;
+
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+
+  z-index: 9999999 !important;
+}
+
+/* Move tooltip arrow to the top, because tooltip is now below the button */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-tooltip ins,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn span.btn-tooltip ins {
+  top: -7px !important;
+  bottom: auto !important;
+
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+
+  border-left: 7px solid transparent !important;
+  border-right: 7px solid transparent !important;
+  border-bottom: 7px solid var(--hb-panel-3) !important;
+  border-top: 0 !important;
+}
