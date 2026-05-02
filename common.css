@@ -1,0 +1,1939 @@
+/* dark-modern-ish-common.css
+   Shared structural CSS for HeBits dark-modern-ish themes.
+   Color values outside :root should use variables so accent palettes can be swapped safely.
+*/
+@import url("https://hebits.net/static/styles/base/style.css?v=1772894811");
+
+:root {
+  color-scheme: dark;
+  --hb-bg: #0d1117;
+  --hb-bg-soft: #111820;
+  --hb-panel: #161b22;
+  --hb-panel-2: #1c2128;
+  --hb-panel-3: #21262d;
+  --hb-panel-hover: #262c36;
+  --hb-border: #30363d;
+  --hb-border-soft: #21262d;
+  --hb-text: #c9d1d9;
+  --hb-text-strong: #f0f6fc;
+  --hb-muted: #8b949e;
+  --hb-link: #58a6ff;
+  --hb-link-hover: #79c0ff;
+  --hb-accent: #1f6feb;
+  --hb-accent-soft: rgba(88, 166, 255, 0.14);
+  --hb-danger: #ff7b72;
+  --hb-danger-hover: #f85149;
+  --hb-success: #3fb950;
+  --hb-success-hover: #2ea043;
+  --hb-warn: #f2cc60;
+  --hb-leeching: #fb923c;
+  --hb-radius-sm: 6px;
+  --hb-radius: 10px;
+  --hb-radius-lg: 14px;
+  --hb-shadow: 0 8px 22px rgba(0, 0, 0, 0.24);
+  --hb-shadow-strong: 0 14px 34px rgba(0, 0, 0, 0.38);
+  --hb-font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;
+  --hb-mono: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  /* User class / permission colors - dark-theme adjusted */
+  --hb-perm-staff: #38bdf8;
+  
+  --hb-perm-1000-sysop: #ff4d5e;
+  --hb-perm-900-staff-leader: #ff4f73;
+  --hb-perm-800-admin: #38bdf8;
+  --hb-perm-700-coder: #f97316;
+  --hb-perm-600-moderator: #e879f9;
+  --hb-perm-450-fls: #66ccff;
+  --hb-perm-400-designer: #ff4db8;
+  --hb-perm-205-uploader: #22c55e;
+  --hb-perm-200-mini-uploader: #00ff99;
+  --hb-perm-150-staff-legend: #ff9900;
+  --hb-perm-100-vip: #fff300;
+  
+  --hb-perm-17-heb-god: #66cc99;
+  --hb-perm-16-heb-supreme: #d6a84a;
+  --hb-perm-15-heb-elite: #b6f542;
+  --hb-perm-14-heb-fanatic: #7cff3a;
+  --hb-perm-13-heb-veteran: #22c55e;
+  --hb-perm-12-heb-lover: #16a34a;
+  --hb-perm-11-heb-user: #cbd5e1;
+  --hb-perm-10-heb-rookie: #9ca3af;
+  /* Primitive constants */
+  --hb-white: #ffffff;
+  --hb-black: #000000;
+
+  /* Overlay / shadow colors */
+  --hb-shadow-menu: rgba(0, 0, 0, 0.28);
+  --hb-shadow-text: rgba(0, 0, 0, 0.55);
+  --hb-overlay-nav: rgba(22, 27, 34, 0.97);
+  --hb-overlay-userinfo: rgba(13, 17, 23, 0.84);
+  --hb-overlay-userinfo-border: rgba(48, 54, 61, 0.75);
+  --hb-input-inner-highlight: rgba(255, 255, 255, 0.03);
+  --hb-modal-backdrop: rgba(1, 4, 9, 0.72);
+
+  /* Theme-derived UI accents */
+  --hb-accent-border: rgba(88, 166, 255, 0.42);
+  --hb-selection-bg: rgba(88, 166, 255, 0.35);
+  --hb-selection-text: var(--hb-white);
+
+  /* Semantic UI colors - do not change per theme unless intentional */
+  --hb-button-primary-bg: #238636;
+  --hb-button-primary-text: var(--hb-white);
+  --hb-button-remove-bg: #da3633;
+
+  --hb-code-bg: var(--hb-bg);
+  --hb-code-text: var(--hb-text-strong);
+  --hb-code-border: #888888;
+
+  --hb-box-green-border: #10964c;
+  --hb-box-green-bg: #1f6f43;
+  --hb-box-gold-border: #d29922;
+  --hb-box-gold-bg: #9e6a03;
+  --hb-box-blue-border: #388bfd;
+  --hb-box-blue-bg: #0d419d;
+  --hb-box-red-bg: #8e1519;
+
+  --hb-token: #d2a8ff;
+  --hb-reseed: #d29922;
+  --hb-new-torrent: #ff9f1c;
+
+  --hb-scrollbar-thumb-hover: #484f58;
+
+  --hb-donate: #ff807b;
+  --hb-donate-hover: #ff9b96;
+  --hb-donate-glow: rgba(255, 128, 123, 0.35);
+
+}
+
+html,
+body,
+.body,
+.tdhack {
+  background: var(--hb-bg) !important;
+  background-color: var(--hb-bg) !important;
+  background-image: none !important;
+  color: var(--hb-text) !important;
+  font-family: var(--hb-font) !important;
+  line-height: 1.45 !important;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+#wrapper,
+#content,
+.thin {
+  background: transparent !important;
+  color: var(--hb-text) !important;
+}
+
+#content {
+  padding-top: 16px !important;
+  padding-bottom: 28px !important;
+}
+
+#header,
+#menu,
+#searchbars-wrapper,
+.holder {
+  background: var(--hb-panel) !important;
+  background-color: var(--hb-panel) !important;
+  background-image: none !important;
+  border-color: var(--hb-border) !important;
+}
+
+#menu {
+  border-bottom: 1px solid var(--hb-border) !important;
+  box-shadow: 0 6px 18px var(--hb-shadow-menu) !important;
+}
+
+#menu ul > li > a,
+#userinfo a,
+#userinfo_minor a,
+#userinfo_major a,
+#userinfo_stats a {
+  color: var(--hb-text) !important;
+}
+
+#menu ul > li > a:hover,
+#userinfo a:hover,
+#header a.username,
+a:hover {
+  color: var(--hb-link-hover) !important;
+  text-decoration: none !important;
+}
+
+#header > #menu ul > li.active > a,
+a.simple-tabs__link--active,
+.selected_link {
+  color: var(--hb-link-hover) !important;
+  font-weight: 700 !important;
+}
+
+.nav_dropdown > div {
+  background: var(--hb-overlay-nav) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius) !important;
+  box-shadow: var(--hb-shadow-strong) !important;
+  overflow: hidden !important;
+}
+
+.nav_dropdown > div > a {
+  padding-inline: 10px !important;
+}
+
+.nav_dropdown > div > a:hover {
+  background: var(--hb-panel-3) !important;
+}
+
+#banner {
+  background-color: var(--hb-bg-soft) !important;
+}
+
+#userinfo {
+  background: var(--hb-overlay-userinfo) !important;
+  border-top: 1px solid var(--hb-overlay-userinfo-border) !important;
+  backdrop-filter: blur(6px);
+}
+
+.box,
+.panel__body,
+.sidebar .box,
+.main_column .box,
+.main_column2 .box,
+.main-column .box,
+.main-column2 .box,
+.news_post .pad,
+.box.pad,
+.box.thin.clear,
+#blog .box,
+#staffblog .box,
+#scontent .box,
+table.layout.border,
+.forum_index,
+.torrent_table,
+.forum_post,
+.message_table,
+#inbox .box {
+  background: var(--hb-panel) !important;
+  background-color: var(--hb-panel) !important;
+  background-image: none !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius) !important;
+  overflow: hidden !important;
+  box-shadow: var(--hb-shadow) !important;
+}
+
+.layout,
+table.layout,
+td,
+th,
+.group td,
+#taglist,
+.desc,
+div.movie-item,
+#threadpoll,
+div#quickreplytext,
+form.search_form,
+table.ft_cat_list {
+  background: var(--hb-panel) !important;
+  background-color: var(--hb-panel) !important;
+  background-image: none !important;
+  color: var(--hb-text) !important;
+  border-color: var(--hb-border) !important;
+}
+
+.head,
+.head.colhead_dark,
+.colhead td,
+.colhead_dark td,
+tr.colhead,
+tr.colhead_dark,
+thead th,
+.panel__heading,
+.forum-post__heading,
+.toggleable-search-form__toggler-container,
+.main_column .box .head,
+.main_column .box .head.colhead_dark,
+.sidebar .box .head,
+.box.filter_torrents .head,
+.box.news_post .head,
+#blog .head,
+#inbox .box .head,
+#reply_box h3,
+#inbox form .send_form #quickpost h3 {
+  background: linear-gradient(180deg, var(--hb-panel-3), var(--hb-panel)) !important;
+  color: var(--hb-text-strong) !important;
+  border-bottom: 1px solid var(--hb-border) !important;
+}
+
+tr.group,
+tr.rowa td,
+tr.rowb td,
+.torrent_table tr td,
+.forum_index tbody td,
+#latest5posts td,
+td,
+th {
+  border-bottom: 1px solid var(--hb-border-soft) !important;
+}
+
+tr:hover > td:not(.tdhack),
+.forum_index tbody tr:hover td,
+.torrent_table tbody tr:hover td,
+.winnerTable > tbody > tr:hover > td:not(.tdhack) {
+  background: var(--hb-panel-hover) !important;
+}
+
+.forum_index tbody tr:nth-child(even) td {
+  background: var(--hb-bg-soft) !important;
+}
+
+a,
+a:link,
+a:visited,
+td a,
+.head a,
+.forum_post a,
+.forum_post .body a:not([data-quote-jump]),
+#wrapper .alert-bars a,
+#summary .ui-widget-content a,
+.group_info > a:nth-child(2n),
+.group_info > a:nth-child(3n),
+#torrents .torrent_table a[onclick*=toggle],
+.box.filter_torrents .head a,
+#blog .head,
+.forum_post .colhead a,
+.forum_post .colhead_dark a,
+#inbox .box .head a,
+tr.unreadpm a,
+tr.inbox-message--unread td a {
+  color: var(--hb-link) !important;
+}
+
+a:hover,
+td a:hover,
+.head a:hover,
+.forum_post a:hover,
+a.simple-tabs__link:hover,
+#wrapper .alert-bars a:hover {
+  color: var(--hb-link-hover) !important;
+  text-decoration: none !important;
+}
+
+.thin h2,
+.thin h3,
+#content h2,
+#content h3,
+.forum_category_title h2,
+.forum_category_title h3 {
+  color: var(--hb-text) !important;
+}
+
+span[style="color: grey;"],
+.small,
+.footer,
+.submit.ft_submit span,
+.brackets,
+.linkbox a.brackets,
+a.brackets {
+  color: var(--hb-muted) !important;
+}
+
+.brackets:hover,
+.linkbox a.brackets:hover,
+a.brackets:hover {
+  color: var(--hb-link) !important;
+}
+
+input,
+textarea,
+select,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[name="subject"],
+textarea[name="body"],
+textarea[name="comment"],
+form.search_form input,
+#header input {
+  background: var(--hb-bg) !important;
+  background-color: var(--hb-bg) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+  box-shadow: inset 0 1px 0 var(--hb-input-inner-highlight) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+#header input:focus,
+#header select:focus,
+form.search_form input:focus {
+  border-color: var(--hb-link) !important;
+  box-shadow: 0 0 0 3px var(--hb-accent-soft) !important;
+  outline: none !important;
+  background: var(--hb-bg) !important;
+  color: var(--hb-text) !important;
+}
+
+input[type="submit"],
+input[type="button"],
+button,
+.btn,
+a.huge-movie-list__movie__title,
+a.huge-movie-list__movie__director {
+  background: var(--hb-button-primary-bg) !important;
+  color: var(--hb-white) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+  font-weight: 650 !important;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button:hover,
+.btn:hover {
+  background: var(--hb-success-hover) !important;
+  border-color: var(--hb-success) !important;
+  color: var(--hb-white) !important;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--hb-accent) !important;
+}
+
+#searchbars,
+#header div#searchbars,
+#header div.search-bar {
+  background: var(--hb-panel) !important;
+}
+
+#searchbars input,
+.search-bar input {
+  background: var(--hb-bg) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: 999px !important;
+}
+
+#taglist tr td a,
+.tags a,
+.sidebar .stats.nobullet a,
+a.basic-movie-list__movie__tag,
+a.cover-movie-list__movie__tag,
+.huge-movie-list__movie__tag-list a,
+.movie-tooltip__tag {
+  background: var(--hb-panel-3) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: 999px !important;
+}
+
+#taglist tr td a:hover,
+.tags a:hover,
+.sidebar .stats.nobullet a:hover,
+a.basic-movie-list__movie__tag:hover,
+a.cover-movie-list__movie__tag:hover,
+.huge-movie-list__movie__tag-list a:hover {
+  background: var(--hb-accent-soft) !important;
+  color: var(--hb-link-hover) !important;
+  border-color: var(--hb-link) !important;
+}
+
+#taglist tr,
+#taglist tr td,
+a.basic-movie-list__movie__tag,
+.huge-movie-list__movie__tag-list a,
+a.cover-movie-list__movie__tag,
+.movie-tooltip__tag {
+  display: inline !important;
+}
+
+blockquote,
+pre,
+code,
+.torrentdetails blockquote,
+.forum_post blockquote,
+#inbox blockquote {
+  background: var(--hb-bg) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+}
+
+blockquote {
+  border-right: 4px solid var(--hb-border) !important;
+  padding: 10px 12px !important;
+}
+
+pre,
+code,
+.log3,
+.log5,
+.torrent_info_row,
+.torrent_table blockquote,
+.torrent_table blockquote span,
+tr.pad[id*=torrent_] {
+  font-family: var(--hb-mono) !important;
+}
+
+ul.bbcode_bar,
+.bbcode_bar .emoji_box,
+.bbcode_bar .size_box,
+.wysibb,
+.wysibb .wysibb-toolbar,
+.wysibb-body {
+  background: var(--hb-panel-2) !important;
+  color: var(--hb-text) !important;
+  border-color: var(--hb-border) !important;
+}
+
+.wysibb-body {
+  background: var(--hb-white) !important;
+  color: var(--hb-black) !important;
+}
+
+.good,
+.goodish,
+.r10,
+.r20,
+.r30,
+.r40,
+.r50,
+.r99,
+.upload_stat,
+.up_polygon {
+  color: var(--hb-success) !important;
+  fill: var(--hb-success) !important;
+}
+
+.bad,
+.badish,
+.invalid,
+.warning,
+.error,
+.down_stat,
+.down_polygon {
+  color: var(--hb-danger) !important;
+  fill: var(--hb-danger) !important;
+}
+
+.internal-mark,
+.tl_notice,
+table#torrent_table strong,
+td.unread:before,
+td.unread_locked:before,
+td.unread_locked_sticky:before,
+td.unread_sticky:before {
+  color: var(--hb-warn) !important;
+}
+
+.alertbar,
+.warning,
+.error,
+.invalid,
+.greenbox,
+.goldbox,
+.bluebox,
+.redbox {
+  border-radius: var(--hb-radius-sm) !important;
+}
+
+svg {
+  fill: var(--hb-text) !important;
+}
+
+.show_torrents:before,
+.hide_torrents:before,
+.cats_movies:before,
+.cats_tv:before,
+.cats_theater:before,
+.cats_games:before,
+.cats_software:before,
+.cats_porno:before,
+.cats_music:before,
+.cats_books:before,
+.cats_other:before,
+.cats_moviespacks:before {
+  color: var(--hb-text) !important;
+}
+
+.page-link,
+.next-prev,
+.next,
+.last,
+.prev,
+.first,
+.nolink {
+  color: var(--hb-text) !important;
+  background: var(--hb-panel-2) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+  padding: 3px 7px !important;
+}
+
+.page-link:hover,
+.next-prev:hover,
+.next:hover,
+.last:hover,
+.prev:hover,
+.first:hover {
+  background: var(--hb-accent-soft) !important;
+  color: var(--hb-link-hover) !important;
+}
+
+.tab {
+  background: var(--hb-panel) !important;
+  border-color: transparent !important;
+}
+
+.tab button {
+  color: var(--hb-text) !important;
+}
+
+.tab button:hover,
+.tab button.active {
+  background: var(--hb-panel-3) !important;
+}
+
+.greenbox {
+  border: 1px solid var(--hb-box-green-border) !important;
+  background-color: var(--hb-box-green-bg) !important;
+  color: var(--hb-white) !important;
+}
+
+.goldbox {
+  border: 1px solid var(--hb-box-gold-border) !important;
+  background-color: var(--hb-box-gold-bg) !important;
+  color: var(--hb-white) !important;
+}
+
+.goldbox a {
+  color: var(--hb-white) !important;
+}
+
+.bluebox {
+  border: 1px solid var(--hb-box-blue-border) !important;
+  background-color: var(--hb-box-blue-bg) !important;
+  color: var(--hb-white) !important;
+}
+
+.redbox {
+  border: 1px solid var(--hb-danger-hover) !important;
+  background-color: var(--hb-box-red-bg) !important;
+  color: var(--hb-white) !important;
+}
+
+.autocomplete-suggestions,
+.autocomplete-suggestion {
+  background: var(--hb-panel) !important;
+  color: var(--hb-text) !important;
+  border-color: var(--hb-border) !important;
+}
+
+.autocomplete-suggestion {
+  border-bottom: 1px solid var(--hb-border) !important;
+}
+
+.autocomplete-suggestion:hover,
+.autocomplete-selected {
+  background-color: var(--hb-panel-2) !important;
+  color: var(--hb-text-strong) !important;
+}
+
+.multi-select-menu,
+.multi-select-button {
+  background: var(--hb-panel) !important;
+  color: var(--hb-text) !important;
+  border-color: var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+}
+
+.multi-select-menuitem:hover {
+  background: var(--hb-panel-2) !important;
+}
+
+img.banner,
+#artist .sidebar img,
+#covers img,
+.group_image img,
+.torrent_screenshots > img {
+  border-radius: var(--hb-radius) !important;
+  border: 1px solid var(--hb-border) !important;
+  box-shadow: var(--hb-shadow) !important;
+}
+
+/* ===== Remove square parent background behind torrent filter box ===== */
+
+html body#torrents form.search_form,
+html body form.search_form:has(.box.filter_torrents) {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Keep the actual filter card responsible for its own background */
+html body .box.filter_torrents {
+  background: var(--hb-panel) !important;
+  background-color: var(--hb-panel) !important;
+  background-image: none !important;
+  border-radius: var(--hb-radius) !important;
+  overflow: hidden !important;
+}
+
+/* Semantic icon colors must beat the generic link color rules. */
+a.tooltip.download_ic,
+a.tooltip.download_ic:link,
+a.tooltip.download_ic:visited,
+a.download_ic,
+a.download_ic:link,
+a.download_ic:visited,
+.download_ic,
+.download_ic:link,
+.download_ic:visited,
+.download_ic i,
+a.download_ic i,
+a.tooltip.download_ic i,
+a.tooltip.download_ic i.fa,
+a.tooltip.download_ic i.fa.fa-download {
+  color: var(--hb-success) !important;
+}
+
+a.tooltip.download_ic:hover,
+a.download_ic:hover,
+.download_ic:hover,
+.download_ic:hover i,
+a.download_ic:hover i,
+a.tooltip.download_ic:hover i,
+a.tooltip.download_ic:hover i.fa,
+a.tooltip.download_ic:hover i.fa.fa-download {
+  color: var(--hb-success-hover) !important;
+}
+
+a.tooltip.report_ic,
+a.tooltip.report_ic:link,
+a.tooltip.report_ic:visited,
+a.report_ic,
+a.report_ic:link,
+a.report_ic:visited,
+.report_ic,
+.report_ic:link,
+.report_ic:visited,
+.report_ic i,
+a.report_ic i,
+a.tooltip.report_ic i,
+a.tooltip.report_ic i.fa,
+a.tooltip.report_ic i.fa.fa-exclamation-triangle {
+  color: var(--hb-danger) !important;
+}
+
+a.tooltip.report_ic:hover,
+a.report_ic:hover,
+.report_ic:hover,
+.report_ic:hover i,
+a.report_ic:hover i,
+a.tooltip.report_ic:hover i,
+a.tooltip.report_ic:hover i.fa,
+a.tooltip.report_ic:hover i.fa.fa-exclamation-triangle {
+  color: var(--hb-danger-hover) !important;
+}
+
+.token_ic { color: var(--hb-token) !important; }
+.reseed_ic { color: var(--hb-reseed) !important; }
+.bookmark_ic { color: var(--hb-warn) !important; }
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--hb-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hb-border);
+  border-radius: 999px;
+  border: 2px solid var(--hb-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hb-scrollbar-thumb-hover);
+}
+
+::selection {
+  background: var(--hb-selection-bg);
+  color: var(--hb-white);
+}
+
+pre.code_block,
+.code_block,
+pre[style].code_block,
+body pre.code_block,
+body .code_block,
+body pre[style].code_block {
+  color: var(--hb-text-strong) !important;
+  -webkit-text-fill-color: var(--hb-text-strong) !important;
+
+  border: 1px solid var(--hb-code-border) !important;
+  border-radius: 8px !important;
+
+  box-shadow: inset 0 0 0 9999px var(--hb-bg) !important;
+
+  padding: 10px 12px !important;
+  font-family: var(--hb-mono), Consolas, "Courier New", monospace !important;
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+
+  text-align: left !important;
+  direction: ltr !important;
+  overflow: auto !important;
+}
+
+pre.code_block *,
+.code_block *,
+body pre.code_block *,
+body .code_block * {
+  color: var(--hb-text-strong) !important;
+  -webkit-text-fill-color: var(--hb-text-strong) !important;
+}
+
+
+html body .filter_torrents div.submit.ft_submit,
+html body div.submit.ft_submit,
+html body .submit.ft_submit {
+  background: var(--hb-panel) !important;
+  background-color: var(--hb-panel) !important;
+  color: var(--hb-text) !important;
+  border-top: 1px solid var(--hb-border-soft) !important;
+  padding: 10px !important;
+}
+
+html body .filter_torrents div.submit.ft_submit input[type="submit"],
+html body .filter_torrents div.submit.ft_submit input[type="button"],
+html body .submit.ft_submit input[type="submit"],
+html body .submit.ft_submit input[type="button"] {
+  background: var(--hb-button-primary-bg) !important;
+  color: var(--hb-white) !important;
+  border: 1px solid var(--hb-success) !important;
+  border-radius: var(--hb-radius-sm) !important;
+  font-weight: 650 !important;
+}
+
+html body .filter_torrents div.submit.ft_submit input[type="submit"]:hover,
+html body .filter_torrents div.submit.ft_submit input[type="button"]:hover,
+html body .submit.ft_submit input[type="submit"]:hover,
+html body .submit.ft_submit input[type="button"]:hover {
+  background: var(--hb-success-hover) !important;
+  color: var(--hb-white) !important;
+}
+
+/* Seeding - always green */
+html body .tl_seeding,
+html body strong.tl_seeding,
+html body .torrent_label.tl_seeding,
+html body strong.torrent_label.tl_seeding,
+html body table .tl_seeding,
+html body table strong.tl_seeding,
+html body #torrent_table .tl_seeding,
+html body #torrent_table strong.tl_seeding,
+html body .torrent_table .tl_seeding,
+html body .torrent_table strong.tl_seeding {
+  color: var(--hb-success) !important;
+  -webkit-text-fill-color: var(--hb-success) !important;
+}
+
+/* Snatched - always red */
+html body .tl_snatched,
+html body strong.tl_snatched,
+html body .torrent_label.tl_snatched,
+html body strong.torrent_label.tl_snatched,
+html body table .tl_snatched,
+html body table strong.tl_snatched,
+html body #torrent_table .tl_snatched,
+html body #torrent_table strong.tl_snatched,
+html body .torrent_table .tl_snatched,
+html body .torrent_table strong.tl_snatched {
+  color: var(--hb-danger) !important;
+  -webkit-text-fill-color: var(--hb-danger) !important;
+}
+
+/* New torrent - always orange */
+html body .new-torrent,
+html body strong.new-torrent,
+html body .torrent_label.new-torrent,
+html body strong.torrent_label.new-torrent,
+html body table .new-torrent,
+html body table strong.new-torrent,
+html body #torrent_table .new-torrent,
+html body #torrent_table strong.new-torrent,
+html body .torrent_table .new-torrent,
+html body .torrent_table strong.new-torrent {
+  color: var(--hb-new-torrent) !important;
+  -webkit-text-fill-color: var(--hb-new-torrent) !important;
+}
+
+/* ===== Modern WysiBB editor skin ===== */
+
+/* Main editor shell */
+html body .wysibb {
+  background: var(--hb-panel) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-lg) !important;
+  box-shadow: var(--hb-shadow) !important;
+  overflow: hidden !important;
+  font-family: var(--hb-font) !important;
+  color: var(--hb-text) !important;
+}
+
+/* Text/content area wrapper */
+html body .wysibb .wysibb-text {
+  background: var(--hb-bg) !important;
+  margin: 0 !important;
+  padding: 10px !important;
+}
+
+/* Actual editable area */
+html body .wysibb .wysibb-text-editor,
+html body .wysibb .wysibb-body,
+html body .wysibb .wysibb-text-editor.wysibb-body {
+  background: var(--hb-bg) !important;
+  color: var(--hb-text-strong) !important;
+  min-height: 160px !important;
+  padding: 14px 16px !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius) !important;
+  outline: none !important;
+  overflow: auto !important;
+  box-sizing: border-box !important;
+
+  direction: rtl !important;
+  text-align: right !important;
+  line-height: 1.55 !important;
+  font-family: var(--hb-font) !important;
+  font-size: 14px !important;
+}
+
+/* Links inside editor */
+html body .wysibb .wysibb-body a {
+  color: var(--hb-link) !important;
+  text-decoration: underline !important;
+}
+
+/* Do not globally alter children layout — avoids Enter/new-line jumping */
+html body .wysibb .wysibb-body p,
+html body .wysibb .wysibb-body div {
+  margin: 0 0 0.55em 0 !important;
+  padding: 0 !important;
+  float: none !important;
+  clear: none !important;
+  position: static !important;
+}
+
+/* Toolbar */
+html body .wysibb .wysibb-toolbar {
+  float: none !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  background: linear-gradient(180deg, var(--hb-panel-3), var(--hb-panel)) !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--hb-border) !important;
+  padding: 6px 8px !important;
+  color: var(--hb-text) !important;
+}
+
+/* Toolbar groups */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 3px !important;
+  margin: 0 4px 4px 0 !important;
+  padding: 0 5px 0 0 !important;
+  border-right: 1px solid var(--hb-border-soft) !important;
+  vertical-align: middle !important;
+}
+
+/* ===== WysiBB mode switch / BBCODE button fix ===== */
+
+html body .wysibb .wysibb-toolbar {
+  position: relative !important;
+  padding-right: 86px !important;
+}
+
+html body .wysibb .wysibb-toolbar .modeSwitch {
+  position: absolute !important;
+  top: 6px !important;
+  right: 8px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  z-index: 3 !important;
+}
+
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 72px !important;
+  min-width: 72px !important;
+  height: 30px !important;
+  padding: 0 8px !important;
+  margin: 0 !important;
+
+  background: transparent !important;
+  color: var(--hb-text) !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--hb-radius-sm) !important;
+  box-shadow: none !important;
+
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn:hover {
+  background: var(--hb-panel-hover) !important;
+  border-color: var(--hb-border) !important;
+}
+
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn.on,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn.on:hover,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn:active {
+  background: var(--hb-accent-soft) !important;
+  border-color: var(--hb-link) !important;
+}
+
+html body .wysibb .wysibb-toolbar .modeSwitch .modesw,
+html body .wysibb .wysibb-toolbar .modeSwitch .btn-inner.modesw {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  color: var(--hb-text) !important;
+  font-family: var(--hb-font) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  line-height: 28px !important;
+  text-align: center !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* Button hover/active */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn:hover,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn:hover {
+  background: var(--hb-panel-hover) !important;
+  border-color: var(--hb-border) !important;
+  color: var(--hb-text-strong) !important;
+}
+
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn:active,
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.on,
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.on:hover {
+  background: var(--hb-accent-soft) !important;
+  border-color: var(--hb-link) !important;
+  color: var(--hb-link-hover) !important;
+  transform: translateY(1px) !important;
+}
+
+/* Icon inside button */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-inner {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  margin: 0 !important;
+}
+
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn .fonticon {
+  color: var(--hb-text) !important;
+  text-shadow: none !important;
+  font-size: 18px !important;
+  line-height: 1 !important;
+}
+
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn:hover .fonticon,
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.on .fonticon {
+  color: var(--hb-link-hover) !important;
+}
+
+/* Text buttons like H1/H2/H3 */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-text,
+html body .wysibb .wysibb-toolbar .modeSwitch .modesw {
+  color: var(--hb-text) !important;
+  font-family: var(--hb-font) !important;
+  font-weight: 700 !important;
+  line-height: 28px !important;
+  text-transform: none !important;
+}
+
+/* Tooltip */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-tooltip {
+  background: var(--hb-panel-3) !important;
+  color: var(--hb-text-strong) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+  box-shadow: var(--hb-shadow) !important;
+  padding: 5px 9px !important;
+  bottom: 36px !important;
+  z-index: 10000 !important;
+}
+
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-tooltip ins {
+  border-top-color: var(--hb-panel-3) !important;
+}
+
+/* Dropdown lists */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn .wbb-list {
+  background: var(--hb-panel) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius) !important;
+  box-shadow: var(--hb-shadow-strong) !important;
+  padding: 6px !important;
+  z-index: 10000 !important;
+}
+
+html body .wbb-select .option,
+html body .wbb-list .nc {
+  color: var(--hb-text) !important;
+  border-radius: var(--hb-radius-sm) !important;
+}
+
+html body .wbb-select .option:hover,
+html body .wbb-list .nc:hover {
+  background: var(--hb-panel-hover) !important;
+  color: var(--hb-text-strong) !important;
+}
+
+html body .wbb-select .option.selected {
+  background: var(--hb-accent) !important;
+  color: var(--hb-white) !important;
+}
+
+/* Color picker squares */
+html body .wbb-list .sc {
+  border: 1px solid var(--hb-border) !important;
+  border-radius: 5px !important;
+}
+
+html body .wbb-list .sc:hover {
+  border-color: var(--hb-link) !important;
+  box-shadow: 0 0 0 2px var(--hb-accent-soft) !important;
+}
+
+/* Bottom resize line */
+html body .wysibb .bottom-resize-line {
+  background: var(--hb-panel-2) !important;
+  border-top: 1px solid var(--hb-border) !important;
+}
+
+html body .wysibb .bottom-resize-line:hover,
+html body .wysibb .bottom-resize-line.drag {
+  background: var(--hb-panel-hover) !important;
+}
+
+/* WysiBB modal */
+html body #wbbmodal {
+  background: var(--hb-modal-backdrop) !important;
+  backdrop-filter: blur(4px);
+}
+
+html body #wbbmodal .wbbm {
+  background: var(--hb-panel) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-lg) !important;
+  box-shadow: var(--hb-shadow-strong) !important;
+  overflow: hidden !important;
+}
+
+html body #wbbmodal .wbbm-title {
+  background: linear-gradient(180deg, var(--hb-panel-3), var(--hb-panel)) !important;
+  color: var(--hb-text-strong) !important;
+  border-bottom: 1px solid var(--hb-border) !important;
+}
+
+html body #wbbmodal .wbbm-title .wbbclose {
+  color: var(--hb-muted) !important;
+}
+
+html body #wbbmodal .wbbm-title .wbbclose:hover {
+  color: var(--hb-danger) !important;
+}
+
+html body #wbbmodal .wbbm-cont,
+html body #wbbmodal .wbbm-tablist {
+  background: var(--hb-panel) !important;
+  color: var(--hb-text) !important;
+}
+
+html body #wbbmodal .wbbm-tablist ul li {
+  border-radius: var(--hb-radius-sm) !important;
+  color: var(--hb-text) !important;
+}
+
+html body #wbbmodal .wbbm-tablist ul li:hover {
+  background: var(--hb-panel-hover) !important;
+}
+
+html body #wbbmodal .wbbm-tablist ul li.on,
+html body #wbbmodal .wbbm-tablist ul li.on:hover {
+  background: var(--hb-accent) !important;
+  color: var(--hb-white) !important;
+}
+
+html body #wbbmodal .wbbm-bottom {
+  background: var(--hb-panel-2) !important;
+  border-top: 1px solid var(--hb-border) !important;
+}
+
+html body #wbbmodal input,
+html body #wbbmodal .div-modal-text {
+  background: var(--hb-bg) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+}
+
+html body #wbbmodal .wbb-button {
+  background: var(--hb-button-primary-bg) !important;
+  color: var(--hb-white) !important;
+  border: 1px solid var(--hb-success) !important;
+  border-radius: var(--hb-radius-sm) !important;
+}
+
+html body #wbbmodal .wbb-button:hover {
+  background: var(--hb-success-hover) !important;
+}
+
+html body #wbbmodal .wbb-cancel-button {
+  background: var(--hb-panel-3) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+}
+
+html body #wbbmodal .wbb-cancel-button:hover {
+  background: var(--hb-panel-hover) !important;
+}
+
+html body #wbbmodal .wbb-remove-button {
+  background: var(--hb-button-remove-bg) !important;
+  color: var(--hb-white) !important;
+  border: 1px solid var(--hb-danger) !important;
+  border-radius: var(--hb-radius-sm) !important;
+}
+
+html body #wbbmodal .wbb-remove-button:hover {
+  background: var(--hb-danger-hover) !important;
+}
+
+/* ===== WysiBB button hover tooltips restore ===== */
+
+/* Make sure the toolbar can show floating tooltips */
+html body .wysibb,
+html body .wysibb .wysibb-toolbar,
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container,
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn,
+html body .wysibb .wysibb-toolbar .modeSwitch,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn {
+  overflow: visible !important;
+}
+
+/* Every toolbar button needs to be the positioning anchor */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn {
+  position: relative !important;
+}
+
+/* Hide tooltip by default */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-tooltip,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn span.btn-tooltip {
+  display: none !important;
+  position: absolute !important;
+
+  bottom: 38px !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+
+  min-width: max-content !important;
+  max-width: 260px !important;
+
+  padding: 6px 10px !important;
+  background: var(--hb-panel-3) !important;
+  color: var(--hb-text-strong) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+  box-shadow: var(--hb-shadow-strong) !important;
+
+  font-family: var(--hb-font) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+
+  z-index: 99999 !important;
+  pointer-events: none !important;
+}
+
+/* Show tooltip on hover/focus */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn:hover span.btn-tooltip,
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn:focus span.btn-tooltip,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn:hover span.btn-tooltip,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn:focus span.btn-tooltip {
+  display: block !important;
+}
+
+/* Tooltip arrow */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-tooltip ins,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn span.btn-tooltip ins {
+  display: block !important;
+  position: absolute !important;
+
+  left: 50% !important;
+  right: auto !important;
+  bottom: -7px !important;
+  transform: translateX(-50%) !important;
+
+  width: 0 !important;
+  height: 0 !important;
+
+  border-left: 7px solid transparent !important;
+  border-right: 7px solid transparent !important;
+  border-top: 7px solid var(--hb-panel-3) !important;
+
+  background: transparent !important;
+}
+
+/* ===== WysiBB tooltip hard fix: show below toolbar in constrained forms ===== */
+
+/* Make all likely editor ancestors stop clipping the tooltip */
+html body #content,
+html body .thin,
+html body .widethin,
+html body form,
+html body table,
+html body tbody,
+html body tr,
+html body td,
+html body .box,
+html body .box.pad,
+html body .field_div,
+html body .textarea_wrap,
+html body #quickpost,
+html body .wysibb,
+html body .wysibb-toolbar,
+html body .wysibb-toolbar-container,
+html body .wysibb-toolbar-btn {
+  overflow: visible !important;
+}
+
+/* Keep editor/content below the tooltip layer */
+html body .wysibb {
+  position: relative !important;
+  z-index: 100 !important;
+}
+
+html body .wysibb .wysibb-toolbar {
+  position: relative !important;
+  z-index: 500 !important;
+}
+
+html body .wysibb .wysibb-text {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Put tooltip BELOW the button instead of above it */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-tooltip,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn span.btn-tooltip {
+  top: 38px !important;
+  bottom: auto !important;
+
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+
+  z-index: 9999999 !important;
+}
+
+/* Move tooltip arrow to the top, because tooltip is now below the button */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-tooltip ins,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn span.btn-tooltip ins {
+  top: -7px !important;
+  bottom: auto !important;
+
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+
+  border-left: 7px solid transparent !important;
+  border-right: 7px solid transparent !important;
+  border-bottom: 7px solid var(--hb-panel-3) !important;
+  border-top: 0 !important;
+}
+
+/* ===== Preserve highlighted donation link ===== */
+
+html body #menu ul > li#nav_donate > a,
+html body #menu ul > li#nav_donate > a:link,
+html body #menu ul > li#nav_donate > a:visited,
+html body li#nav_donate > a,
+html body li#nav_donate > a:link,
+html body li#nav_donate > a:visited,
+html body a[href="/donate.php"],
+html body a[href="donate.php"] {
+  color: var(--hb-donate) !important;
+  font-weight: 700 !important;
+}
+
+html body #menu ul > li#nav_donate > a:hover,
+html body li#nav_donate > a:hover,
+html body a[href="/donate.php"]:hover,
+html body a[href="donate.php"]:hover {
+  color: var(--hb-donate-hover) !important;
+  text-shadow: 0 0 8px var(--hb-donate-glow) !important;
+}
+
+/* ===== Forum category title modern dark fix ===== */
+
+/* Override old Dark-Blue teal forum category bars */
+html body .forum_list h3.forum_category_title,
+html body h3.forum_category_title,
+html body .forum_category_title {
+  background: linear-gradient(180deg, var(--hb-panel-3), var(--hb-panel)) !important;
+  background-color: var(--hb-panel-3) !important;
+  color: var(--hb-text-strong) !important;
+
+  border: 1px solid var(--hb-border) !important;
+  border-bottom: 0 !important;
+
+  border-top-left-radius: var(--hb-radius) !important;
+  border-top-right-radius: var(--hb-radius) !important;
+
+  padding: 8px 12px !important;
+  margin: 12px 0 0 0 !important;
+
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  text-align: right !important;
+  box-shadow: none !important;
+}
+
+/* Make the forum table connect cleanly under the category title */
+html body .forum_list table.forum_index,
+html body table.forum_index {
+  margin-top: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border: 1px solid var(--hb-border) !important;
+  background: var(--hb-panel) !important;
+  overflow: hidden !important;
+}
+
+/* Keep forum table header dark, not teal */
+html body table.forum_index tr.colhead,
+html body table.forum_index tr.colhead_dark,
+html body table.forum_index tr.colhead td,
+html body table.forum_index tr.colhead_dark td,
+html body .forum_index .colhead,
+html body .forum_index .colhead_dark {
+  background: linear-gradient(180deg, var(--hb-panel-3), var(--hb-panel)) !important;
+  background-color: var(--hb-panel-3) !important;
+  color: var(--hb-text-strong) !important;
+  border-color: var(--hb-border) !important;
+}
+
+/* Forum rows */
+html body table.forum_index td,
+html body .forum_index tbody td {
+  background: var(--hb-panel) !important;
+  color: var(--hb-text) !important;
+  border-bottom: 1px solid var(--hb-border-soft) !important;
+}
+
+html body table.forum_index tr:hover td,
+html body .forum_index tbody tr:hover td {
+  background: var(--hb-panel-hover) !important;
+}
+
+
+
+/* ===== Legacy BBCode edit editor skin v2 ===== */
+
+/*
+  Used when editing existing posts.
+  This is not the full WysiBB editor.
+  It styles the legacy:
+  - ul.bbcode_bar
+  - textarea[id^="editbox"]
+
+  CSS cannot create a real BBCode/WYSIWYG toggle if the site does not render one.
+*/
+
+/* Main legacy editor wrapper behavior */
+html body form[id^="form"] {
+  overflow: visible !important;
+}
+
+/* Legacy BBCode toolbar */
+html body ul.bbcode_bar,
+html body form[id^="form"] ul.bbcode_bar {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 4px !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  margin: 0 !important;
+  padding: 7px 8px !important;
+
+  background: linear-gradient(180deg, var(--hb-panel-3), var(--hb-panel)) !important;
+  color: var(--hb-text) !important;
+
+  border: 1px solid var(--hb-border) !important;
+  border-bottom: 0 !important;
+
+  border-top-left-radius: var(--hb-radius) !important;
+  border-top-right-radius: var(--hb-radius) !important;
+
+  list-style: none !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+/* Toolbar items */
+html body ul.bbcode_bar > li,
+html body form[id^="form"] ul.bbcode_bar > li {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  list-style: none !important;
+  vertical-align: middle !important;
+  overflow: visible !important;
+}
+
+/* Toolbar links/buttons */
+html body ul.bbcode_bar a,
+html body ul.bbcode_bar button,
+html body ul.bbcode_bar input,
+html body ul.bbcode_bar span,
+html body form[id^="form"] ul.bbcode_bar a,
+html body form[id^="form"] ul.bbcode_bar button,
+html body form[id^="form"] ul.bbcode_bar input,
+html body form[id^="form"] ul.bbcode_bar span {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  min-width: 28px !important;
+  height: 28px !important;
+
+  margin: 0 !important;
+  padding: 3px 5px !important;
+
+  background: transparent !important;
+  color: var(--hb-text) !important;
+
+  border: 1px solid transparent !important;
+  border-radius: var(--hb-radius-sm) !important;
+  box-shadow: none !important;
+
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  line-height: 1 !important;
+}
+
+/* Toolbar hover */
+html body ul.bbcode_bar a:hover,
+html body ul.bbcode_bar button:hover,
+html body ul.bbcode_bar input:hover,
+html body ul.bbcode_bar span:hover,
+html body form[id^="form"] ul.bbcode_bar a:hover,
+html body form[id^="form"] ul.bbcode_bar button:hover,
+html body form[id^="form"] ul.bbcode_bar input:hover,
+html body form[id^="form"] ul.bbcode_bar span:hover {
+  background: var(--hb-panel-hover) !important;
+  color: var(--hb-link-hover) !important;
+  border-color: var(--hb-border) !important;
+}
+
+/* Keep existing old sprite/icon buttons visible */
+html body ul.bbcode_bar img,
+html body ul.bbcode_bar i,
+html body ul.bbcode_bar .fa,
+html body ul.bbcode_bar [class^="bbcode"],
+html body ul.bbcode_bar [class*="bbcode"],
+html body form[id^="form"] ul.bbcode_bar img,
+html body form[id^="form"] ul.bbcode_bar i,
+html body form[id^="form"] ul.bbcode_bar .fa,
+html body form[id^="form"] ul.bbcode_bar [class^="bbcode"],
+html body form[id^="form"] ul.bbcode_bar [class*="bbcode"] {
+  opacity: 1 !important;
+  filter: none !important;
+  color: var(--hb-text) !important;
+}
+
+/* If the legacy toolbar actually contains a BBCode/source-mode button, keep it visible */
+html body ul.bbcode_bar .bbcode,
+html body ul.bbcode_bar .bbcode_mode,
+html body ul.bbcode_bar .modeSwitch,
+html body ul.bbcode_bar [title*="BBCode"],
+html body ul.bbcode_bar [title*="bbcode"],
+html body ul.bbcode_bar [title*="קוד"],
+html body ul.bbcode_bar [title*="מקור"],
+html body form[id^="form"] ul.bbcode_bar .bbcode,
+html body form[id^="form"] ul.bbcode_bar .bbcode_mode,
+html body form[id^="form"] ul.bbcode_bar .modeSwitch,
+html body form[id^="form"] ul.bbcode_bar [title*="BBCode"],
+html body form[id^="form"] ul.bbcode_bar [title*="bbcode"],
+html body form[id^="form"] ul.bbcode_bar [title*="קוד"],
+html body form[id^="form"] ul.bbcode_bar [title*="מקור"] {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  min-width: 70px !important;
+  height: 28px !important;
+
+  padding: 3px 8px !important;
+
+  color: var(--hb-text-strong) !important;
+  background: var(--hb-panel-2) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+
+  font-weight: 700 !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+}
+
+/* The old edit textarea */
+html body textarea[id^="editbox"],
+html body form[id^="form"] textarea[name="body"],
+html body form[id^="form"] textarea[id^="editbox"] {
+  display: block !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 220px !important;
+
+  margin: 0 !important;
+  padding: 14px 16px !important;
+
+  background: var(--hb-bg) !important;
+  color: var(--hb-text-strong) !important;
+
+  border: 1px solid var(--hb-border) !important;
+  border-top: 0 !important;
+
+  border-bottom-left-radius: var(--hb-radius) !important;
+  border-bottom-right-radius: var(--hb-radius) !important;
+
+  font-family: var(--hb-mono), Consolas, "Courier New", monospace !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+
+  direction: rtl !important;
+  text-align: right !important;
+
+  outline: none !important;
+  box-shadow: var(--hb-shadow) !important;
+  box-sizing: border-box !important;
+  resize: vertical !important;
+}
+
+/* Focus state */
+html body textarea[id^="editbox"]:focus,
+html body form[id^="form"] textarea[name="body"]:focus,
+html body form[id^="form"] textarea[id^="editbox"]:focus {
+  border-color: var(--hb-link) !important;
+  box-shadow: 0 0 0 3px var(--hb-accent-soft), var(--hb-shadow) !important;
+}
+
+/* Placeholder / selection */
+html body textarea[id^="editbox"]::selection,
+html body form[id^="form"] textarea[name="body"]::selection {
+  background: var(--hb-selection-bg) !important;
+  color: var(--hb-white) !important;
+}
+
+/* ===== Torrent status: leeching always orange ===== */
+
+html body .tl_leeching,
+html body strong.tl_leeching,
+html body .torrent_label.tl_leeching,
+html body strong.torrent_label.tl_leeching,
+html body table .tl_leeching,
+html body table strong.tl_leeching,
+html body #torrent_table .tl_leeching,
+html body #torrent_table strong.tl_leeching,
+html body table#torrent_table .tl_leeching,
+html body table#torrent_table strong.tl_leeching,
+html body .torrent_table .tl_leeching,
+html body .torrent_table strong.tl_leeching {
+  color: var(--hb-leeching) !important;
+  -webkit-text-fill-color: var(--hb-leeching) !important;
+}
+
+/* ===== User permission colors - preserve ranks everywhere ===== */
+
+/* Base behavior for all permission/user-class links */
+html body a[class*="permission_"],
+html body span[class*="permission_"],
+html body strong[class*="permission_"],
+html body .forum_post a[class*="permission_"],
+html body .forum_post span[class*="permission_"],
+html body .forum_post strong[class*="permission_"],
+html body td a[class*="permission_"],
+html body td span[class*="permission_"],
+html body #userinfo a[class*="permission_"],
+html body #userinfo_minor a[class*="permission_"],
+html body #userinfo_major a[class*="permission_"],
+html body #userinfo_stats a[class*="permission_"],
+html body .sidebar a[class*="permission_"],
+html body .sidebar span[class*="permission_"] {
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px var(--hb-shadow-text) !important;
+}
+
+/* Make nested text inherit the permission color */
+html body a[class*="permission_"] *,
+html body span[class*="permission_"] *,
+html body strong[class*="permission_"] * {
+  color: inherit !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+/* Staff */
+html body .permission_staff,
+html body a.permission_staff,
+html body span.permission_staff,
+html body strong.permission_staff,
+html body .forum_post a.permission_staff {
+  color: var(--hb-perm-staff) !important;
+  -webkit-text-fill-color: var(--hb-perm-staff) !important;
+}
+
+/* SYSOP */
+html body .permission_1000,
+html body a.permission_1000,
+html body span.permission_1000,
+html body strong.permission_1000,
+html body .forum_post a.permission_1000 {
+  color: var(--hb-perm-1000-sysop) !important;
+  -webkit-text-fill-color: var(--hb-perm-1000-sysop) !important;
+}
+
+/* STAFF LEADER */
+html body .permission_900,
+html body a.permission_900,
+html body span.permission_900,
+html body strong.permission_900,
+html body .forum_post a.permission_900 {
+  color: var(--hb-perm-900-staff-leader) !important;
+  -webkit-text-fill-color: var(--hb-perm-900-staff-leader) !important;
+}
+
+/* ADMINISTRATOR */
+html body .permission_800,
+html body a.permission_800,
+html body span.permission_800,
+html body strong.permission_800,
+html body .forum_post a.permission_800 {
+  color: var(--hb-perm-800-admin) !important;
+  -webkit-text-fill-color: var(--hb-perm-800-admin) !important;
+}
+
+/* CODER */
+html body .permission_700,
+html body a.permission_700,
+html body span.permission_700,
+html body strong.permission_700,
+html body .forum_post a.permission_700 {
+  color: var(--hb-perm-700-coder) !important;
+  -webkit-text-fill-color: var(--hb-perm-700-coder) !important;
+}
+
+/* MODERATOR */
+html body .permission_600,
+html body a.permission_600,
+html body span.permission_600,
+html body strong.permission_600,
+html body .forum_post a.permission_600 {
+  color: var(--hb-perm-600-moderator) !important;
+  -webkit-text-fill-color: var(--hb-perm-600-moderator) !important;
+}
+
+/* FLS */
+html body .permission_450,
+html body a.permission_450,
+html body span.permission_450,
+html body strong.permission_450,
+html body .forum_post a.permission_450 {
+  color: var(--hb-perm-450-fls) !important;
+  -webkit-text-fill-color: var(--hb-perm-450-fls) !important;
+}
+
+/* DESIGNER */
+html body .permission_400,
+html body a.permission_400,
+html body span.permission_400,
+html body strong.permission_400,
+html body .forum_post a.permission_400 {
+  color: var(--hb-perm-400-designer) !important;
+  -webkit-text-fill-color: var(--hb-perm-400-designer) !important;
+}
+
+/* UPLOADER */
+html body .permission_205,
+html body a.permission_205,
+html body span.permission_205,
+html body strong.permission_205,
+html body .forum_post a.permission_205 {
+  color: var(--hb-perm-205-uploader) !important;
+  -webkit-text-fill-color: var(--hb-perm-205-uploader) !important;
+}
+
+/* MINI UPLOADER */
+html body .permission_200,
+html body a.permission_200,
+html body span.permission_200,
+html body strong.permission_200,
+html body .forum_post a.permission_200 {
+  color: var(--hb-perm-200-mini-uploader) !important;
+  -webkit-text-fill-color: var(--hb-perm-200-mini-uploader) !important;
+}
+
+/* STAFF LEGEND */
+html body .permission_150,
+html body a.permission_150,
+html body span.permission_150,
+html body strong.permission_150,
+html body .forum_post a.permission_150 {
+  color: var(--hb-perm-150-staff-legend) !important;
+  -webkit-text-fill-color: var(--hb-perm-150-staff-legend) !important;
+}
+
+/* VIP */
+html body .permission_100,
+html body a.permission_100,
+html body span.permission_100,
+html body strong.permission_100,
+html body .forum_post a.permission_100 {
+  color: var(--hb-perm-100-vip) !important;
+  -webkit-text-fill-color: var(--hb-perm-100-vip) !important;
+}
+
+/* HEB GOD */
+html body .permission_17,
+html body a.permission_17,
+html body span.permission_17,
+html body strong.permission_17,
+html body .forum_post a.permission_17 {
+  color: var(--hb-perm-17-heb-god) !important;
+  -webkit-text-fill-color: var(--hb-perm-17-heb-god) !important;
+}
+
+/* HEB SUPREME */
+html body .permission_16,
+html body a.permission_16,
+html body span.permission_16,
+html body strong.permission_16,
+html body .forum_post a.permission_16 {
+  color: var(--hb-perm-16-heb-supreme) !important;
+  -webkit-text-fill-color: var(--hb-perm-16-heb-supreme) !important;
+}
+
+/* HEB ELITE */
+html body .permission_15,
+html body a.permission_15,
+html body span.permission_15,
+html body strong.permission_15,
+html body .forum_post a.permission_15 {
+  color: var(--hb-perm-15-heb-elite) !important;
+  -webkit-text-fill-color: var(--hb-perm-15-heb-elite) !important;
+}
+
+/* HEB FANATIC */
+html body .permission_14,
+html body a.permission_14,
+html body span.permission_14,
+html body strong.permission_14,
+html body .forum_post a.permission_14 {
+  color: var(--hb-perm-14-heb-fanatic) !important;
+  -webkit-text-fill-color: var(--hb-perm-14-heb-fanatic) !important;
+}
+
+/* HEB VETERAN */
+html body .permission_13,
+html body a.permission_13,
+html body span.permission_13,
+html body strong.permission_13,
+html body .forum_post a.permission_13 {
+  color: var(--hb-perm-13-heb-veteran) !important;
+  -webkit-text-fill-color: var(--hb-perm-13-heb-veteran) !important;
+}
+
+/* HEB LOVER */
+html body .permission_12,
+html body a.permission_12,
+html body span.permission_12,
+html body strong.permission_12,
+html body .forum_post a.permission_12 {
+  color: var(--hb-perm-12-heb-lover) !important;
+  -webkit-text-fill-color: var(--hb-perm-12-heb-lover) !important;
+}
+
+/* HEB USER */
+html body .permission_11,
+html body a.permission_11,
+html body span.permission_11,
+html body strong.permission_11,
+html body .forum_post a.permission_11 {
+  color: var(--hb-perm-11-heb-user) !important;
+  -webkit-text-fill-color: var(--hb-perm-11-heb-user) !important;
+  font-weight: 700 !important;
+}
+
+/* HEB ROOKIE */
+html body .permission_10,
+html body a.permission_10,
+html body span.permission_10,
+html body strong.permission_10,
+html body .forum_post a.permission_10 {
+  color: var(--hb-perm-10-heb-rookie) !important;
+  -webkit-text-fill-color: var(--hb-perm-10-heb-rookie) !important;
+}
+
+/* Hover: do not turn usernames into generic blue links */
+html body a[class*="permission_"]:hover,
+html body .forum_post a[class*="permission_"]:hover,
+html body td a[class*="permission_"]:hover,
+html body #userinfo a[class*="permission_"]:hover,
+html body .sidebar a[class*="permission_"]:hover {
+  color: currentColor !important;
+  -webkit-text-fill-color: currentColor !important;
+  text-decoration: none !important;
+  filter: brightness(1.18) saturate(1.08) !important;
+}
