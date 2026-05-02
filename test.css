@@ -1,0 +1,1581 @@
+@import url("https://hebits.net/static/styles/base/style.css?v=1772894811");
+
+/* ==========================================================
+   HeBits Dark Modern-ish Theme - corrected full version
+   Goals:
+   - Add a restrained orange accent for contrast
+   - Preserve user/rank colors instead of flattening usernames
+   - Make buttons/pills rounder
+   - Keep existing WysiBB / legacy BBCode functionality untouched
+   ========================================================== */
+
+:root {
+  color-scheme: dark;
+
+  --hb-bg: #0d1117;
+  --hb-bg-soft: #111820;
+  --hb-panel: #161b22;
+  --hb-panel-2: #1c2128;
+  --hb-panel-3: #21262d;
+  --hb-panel-hover: #262c36;
+
+  --hb-border: #30363d;
+  --hb-border-soft: #21262d;
+
+  --hb-text: #c9d1d9;
+  --hb-text-strong: #f0f6fc;
+  --hb-muted: #8b949e;
+
+  --hb-link: #58a6ff;
+  --hb-link-hover: #79c0ff;
+
+  /* Orange is an accent, not the default link color. */
+  --hb-accent: #f97316;
+  --hb-accent-hover: #fb923c;
+  --hb-accent-soft: rgba(249, 115, 22, 0.16);
+  --hb-accent-border: rgba(251, 146, 60, 0.42);
+
+  --hb-danger: #ff7b72;
+  --hb-danger-hover: #f85149;
+  --hb-success: #3fb950;
+  --hb-success-hover: #2ea043;
+  --hb-warn: #f2cc60;
+
+  --hb-radius-sm: 9px;
+  --hb-radius: 13px;
+  --hb-radius-lg: 18px;
+  --hb-radius-pill: 999px;
+
+  --hb-shadow: 0 8px 22px rgba(0, 0, 0, 0.24);
+  --hb-shadow-strong: 0 14px 34px rgba(0, 0, 0, 0.38);
+  --hb-focus-ring: 0 0 0 3px var(--hb-accent-soft);
+
+  --hb-font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;
+  --hb-mono: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+html,
+body,
+.body,
+.tdhack {
+  background: var(--hb-bg) !important;
+  background-color: var(--hb-bg) !important;
+  background-image: none !important;
+  color: var(--hb-text) !important;
+  font-family: var(--hb-font) !important;
+  line-height: 1.45 !important;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+#wrapper,
+#content,
+.thin {
+  background: transparent !important;
+  color: var(--hb-text) !important;
+}
+
+#content {
+  padding-top: 16px !important;
+  padding-bottom: 28px !important;
+}
+
+/* Header / navigation */
+#header,
+#menu,
+#searchbars-wrapper,
+.holder {
+  background: var(--hb-panel) !important;
+  background-color: var(--hb-panel) !important;
+  background-image: none !important;
+  border-color: var(--hb-border) !important;
+}
+
+#menu {
+  border-bottom: 1px solid var(--hb-border) !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28) !important;
+}
+
+#menu ul > li > a {
+  color: var(--hb-text) !important;
+  border-radius: var(--hb-radius-pill) !important;
+}
+
+#menu ul > li > a:hover,
+a:hover,
+a.simple-tabs__link:hover,
+#wrapper .alert-bars a:hover {
+  color: var(--hb-link-hover) !important;
+  text-decoration: none !important;
+}
+
+#header > #menu ul > li.active > a,
+#menu ul > li.active > a,
+a.simple-tabs__link--active,
+.selected_link {
+  color: var(--hb-text-strong) !important;
+  font-weight: 700 !important;
+  box-shadow: inset 0 -2px 0 var(--hb-accent) !important;
+}
+
+.nav_dropdown > div {
+  background: rgba(22, 27, 34, 0.97) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius) !important;
+  box-shadow: var(--hb-shadow-strong) !important;
+  overflow: hidden !important;
+}
+
+.nav_dropdown > div > a {
+  padding-inline: 10px !important;
+}
+
+.nav_dropdown > div > a:hover {
+  background: var(--hb-panel-3) !important;
+}
+
+#banner {
+  background-color: var(--hb-bg-soft) !important;
+}
+
+#userinfo {
+  background: rgba(13, 17, 23, 0.84) !important;
+  border-top: 1px solid rgba(48, 54, 61, 0.75) !important;
+  backdrop-filter: blur(6px);
+}
+
+/* Do not flatten user / rank colors. */
+#userinfo a:not(.username):not([class*="username"]):not([class*="user"]):not([class*="rank"]):not([class*="class"]):not([style*="color"]),
+#userinfo_minor a:not(.username):not([class*="username"]):not([class*="user"]):not([class*="rank"]):not([class*="class"]):not([style*="color"]),
+#userinfo_major a:not(.username):not([class*="username"]):not([class*="user"]):not([class*="rank"]):not([class*="class"]):not([style*="color"]),
+#userinfo_stats a:not(.username):not([class*="username"]):not([class*="user"]):not([class*="rank"]):not([class*="class"]):not([style*="color"]) {
+  color: var(--hb-text) !important;
+}
+
+#userinfo a:hover,
+#userinfo_minor a:hover,
+#userinfo_major a:hover,
+#userinfo_stats a:hover,
+#header a.username:hover {
+  color: var(--hb-link-hover) !important;
+}
+
+/* Main panels / cards */
+.box,
+.panel__body,
+.sidebar .box,
+.main_column .box,
+.main_column2 .box,
+.main-column .box,
+.main-column2 .box,
+.news_post .pad,
+.box.pad,
+.box.thin.clear,
+#blog .box,
+#staffblog .box,
+#scontent .box,
+table.layout.border,
+.forum_index,
+.torrent_table,
+.forum_post,
+.message_table,
+#inbox .box {
+  background: var(--hb-panel) !important;
+  background-color: var(--hb-panel) !important;
+  background-image: none !important;
+  color: var(--hb-text) !important;
+  border: 1px solid rgba(48, 54, 61, 0.92) !important;
+  border-radius: var(--hb-radius-lg) !important;
+  overflow: hidden !important;
+  box-shadow: var(--hb-shadow) !important;
+}
+
+.layout,
+table.layout,
+td,
+th,
+.group td,
+#taglist,
+.desc,
+div.movie-item,
+#threadpoll,
+div#quickreplytext,
+form.search_form,
+table.ft_cat_list {
+  background: var(--hb-panel) !important;
+  background-color: var(--hb-panel) !important;
+  background-image: none !important;
+  color: var(--hb-text) !important;
+  border-color: var(--hb-border) !important;
+}
+
+.head,
+.head.colhead_dark,
+.colhead td,
+.colhead_dark td,
+tr.colhead,
+tr.colhead_dark,
+thead th,
+.panel__heading,
+.forum-post__heading,
+.toggleable-search-form__toggler-container,
+.main_column .box .head,
+.main_column .box .head.colhead_dark,
+.sidebar .box .head,
+.box.filter_torrents .head,
+.box.news_post .head,
+#blog .head,
+#inbox .box .head,
+#reply_box h3,
+#inbox form .send_form #quickpost h3 {
+  position: relative !important;
+  background: linear-gradient(180deg, var(--hb-panel-3), var(--hb-panel)) !important;
+  color: var(--hb-text-strong) !important;
+  border-bottom: 1px solid var(--hb-border) !important;
+}
+
+.head::after,
+.panel__heading::after,
+.forum-post__heading::after,
+.box.filter_torrents .head::after,
+.box.news_post .head::after,
+#blog .head::after,
+#inbox .box .head::after {
+  content: "" !important;
+  position: absolute !important;
+  inset-inline-end: 0 !important;
+  bottom: 0 !important;
+  width: 42px !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, var(--hb-accent)) !important;
+  opacity: 0.85 !important;
+}
+
+tr.group,
+tr.rowa td,
+tr.rowb td,
+.torrent_table tr td,
+.forum_index tbody td,
+#latest5posts td,
+td,
+th {
+  border-bottom: 1px solid var(--hb-border-soft) !important;
+}
+
+tr:hover > td:not(.tdhack),
+.forum_index tbody tr:hover td,
+.torrent_table tbody tr:hover td,
+.winnerTable > tbody > tr:hover > td:not(.tdhack) {
+  background: var(--hb-panel-hover) !important;
+}
+
+tr:hover > td:not(.tdhack):first-child,
+.forum_index tbody tr:hover td:first-child,
+.torrent_table tbody tr:hover td:first-child {
+  box-shadow: inset 3px 0 0 var(--hb-accent) !important;
+}
+
+.forum_index tbody tr:nth-child(even) td {
+  background: #111820 !important;
+}
+
+/* Safer link coloring: preserve user/rank/inline colors. */
+a:not(.username):not([class*="username"]):not([class*="user"]):not([class*="rank"]):not([class*="class"]):not([style*="color"]),
+a:link:not(.username):not([class*="username"]):not([class*="user"]):not([class*="rank"]):not([class*="class"]):not([style*="color"]),
+a:visited:not(.username):not([class*="username"]):not([class*="user"]):not([class*="rank"]):not([class*="class"]):not([style*="color"]),
+td a:not(.username):not([class*="username"]):not([class*="user"]):not([class*="rank"]):not([class*="class"]):not([style*="color"]),
+.head a:not(.username):not([class*="username"]):not([class*="user"]):not([class*="rank"]):not([class*="class"]):not([style*="color"]),
+.forum_post a:not(.username):not([class*="username"]):not([class*="user"]):not([class*="rank"]):not([class*="class"]):not([style*="color"]),
+.forum_post .body a:not([data-quote-jump]):not(.username):not([class*="username"]):not([class*="user"]):not([class*="rank"]):not([class*="class"]):not([style*="color"]),
+#wrapper .alert-bars a:not(.username):not([class*="username"]):not([class*="user"]):not([class*="rank"]):not([class*="class"]):not([style*="color"]),
+#summary .ui-widget-content a:not(.username):not([class*="username"]):not([class*="user"]):not([class*="rank"]):not([class*="class"]):not([style*="color"]),
+#torrents .torrent_table a[onclick*=toggle],
+.box.filter_torrents .head a,
+.forum_post .colhead a,
+.forum_post .colhead_dark a,
+#inbox .box .head a,
+tr.unreadpm a,
+tr.inbox-message--unread td a {
+  color: var(--hb-link) !important;
+}
+
+a:hover,
+td a:hover,
+.head a:hover,
+.forum_post a:hover,
+a.simple-tabs__link:hover,
+#wrapper .alert-bars a:hover {
+  color: var(--hb-link-hover) !important;
+  text-decoration: none !important;
+}
+
+.thin h2,
+.thin h3,
+#content h2,
+#content h3,
+.forum_category_title h2,
+.forum_category_title h3 {
+  color: var(--hb-text) !important;
+}
+
+span[style="color: grey;"],
+.small,
+.footer,
+.submit.ft_submit span,
+.brackets,
+.linkbox a.brackets,
+a.brackets {
+  color: var(--hb-muted) !important;
+}
+
+.brackets:hover,
+.linkbox a.brackets:hover,
+a.brackets:hover {
+  color: var(--hb-link) !important;
+}
+
+/* Forms */
+input,
+textarea,
+select,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[name="subject"],
+textarea[name="body"],
+textarea[name="comment"],
+form.search_form input,
+#header input {
+  background: var(--hb-bg) !important;
+  background-color: var(--hb-bg) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+#header input:focus,
+#header select:focus,
+form.search_form input:focus {
+  border-color: var(--hb-accent-hover) !important;
+  box-shadow: var(--hb-focus-ring) !important;
+  outline: none !important;
+  background: var(--hb-bg) !important;
+  color: var(--hb-text) !important;
+}
+
+input[type="submit"],
+input[type="button"],
+button,
+.btn,
+a.button {
+  min-height: 30px !important;
+  padding: 5px 13px !important;
+  line-height: 1.2 !important;
+  background: linear-gradient(180deg, #2ea043, #238636) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(63, 185, 80, 0.72) !important;
+  border-radius: var(--hb-radius-pill) !important;
+  font-weight: 700 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.10),
+    0 4px 12px rgba(0, 0, 0, 0.24) !important;
+  transition: transform 0.08s ease, background 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease !important;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button:hover,
+.btn:hover,
+a.button:hover {
+  background: linear-gradient(180deg, #3fb950, #2ea043) !important;
+  border-color: var(--hb-accent-border) !important;
+  color: #ffffff !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 0 0 3px var(--hb-accent-soft),
+    0 6px 16px rgba(0, 0, 0, 0.30) !important;
+}
+
+input[type="submit"]:active,
+input[type="button"]:active,
+button:active,
+.btn:active,
+a.button:active {
+  transform: translateY(1px) !important;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--hb-accent) !important;
+}
+
+#searchbars,
+#header div#searchbars,
+#header div.search-bar {
+  background: var(--hb-panel) !important;
+}
+
+#searchbars input,
+.search-bar input {
+  background: var(--hb-bg) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-pill) !important;
+}
+
+/* Tags / chips */
+#taglist tr td a,
+.tags a,
+.sidebar .stats.nobullet a,
+a.basic-movie-list__movie__tag,
+a.cover-movie-list__movie__tag,
+.huge-movie-list__movie__tag-list a,
+.movie-tooltip__tag {
+  background: var(--hb-panel-3) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-pill) !important;
+  padding: 2px 8px !important;
+}
+
+#taglist tr td a:hover,
+.tags a:hover,
+.sidebar .stats.nobullet a:hover,
+a.basic-movie-list__movie__tag:hover,
+a.cover-movie-list__movie__tag:hover,
+.huge-movie-list__movie__tag-list a:hover {
+  background: var(--hb-accent-soft) !important;
+  color: var(--hb-accent-hover) !important;
+  border-color: var(--hb-accent-border) !important;
+}
+
+#taglist tr,
+#taglist tr td,
+a.basic-movie-list__movie__tag,
+.huge-movie-list__movie__tag-list a,
+a.cover-movie-list__movie__tag,
+.movie-tooltip__tag {
+  display: inline !important;
+}
+
+/* Forum / BBCode content */
+blockquote,
+pre,
+code,
+.torrentdetails blockquote,
+.forum_post blockquote,
+#inbox blockquote {
+  background: var(--hb-bg) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+}
+
+blockquote {
+  border-right: 4px solid var(--hb-border) !important;
+  padding: 10px 12px !important;
+}
+
+pre,
+code,
+.log3,
+.log5,
+.torrent_info_row,
+.torrent_table blockquote,
+.torrent_table blockquote span,
+tr.pad[id*=torrent_] {
+  font-family: var(--hb-mono) !important;
+}
+
+pre.code_block,
+.code_block,
+pre[style].code_block,
+body pre.code_block,
+body .code_block,
+body pre[style].code_block {
+  color: #f0f6fc !important;
+  -webkit-text-fill-color: #f0f6fc !important;
+  border: 1px solid #888888 !important;
+  border-radius: var(--hb-radius-sm) !important;
+  box-shadow: inset 0 0 0 9999px #0d1117 !important;
+  padding: 10px 12px !important;
+  font-family: var(--hb-mono), Consolas, "Courier New", monospace !important;
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+  text-align: left !important;
+  direction: ltr !important;
+  overflow: auto !important;
+}
+
+pre.code_block *,
+.code_block *,
+body pre.code_block *,
+body .code_block * {
+  color: #f0f6fc !important;
+  -webkit-text-fill-color: #f0f6fc !important;
+}
+
+/* Status colors */
+.good,
+.goodish,
+.r10,
+.r20,
+.r30,
+.r40,
+.r50,
+.r99,
+.upload_stat,
+.up_polygon,
+.tl_seeding {
+  color: var(--hb-success) !important;
+  fill: var(--hb-success) !important;
+  -webkit-text-fill-color: var(--hb-success) !important;
+}
+
+.bad,
+.badish,
+.invalid,
+.warning,
+.error,
+.down_stat,
+.down_polygon,
+.tl_snatched {
+  color: var(--hb-danger) !important;
+  fill: var(--hb-danger) !important;
+  -webkit-text-fill-color: var(--hb-danger) !important;
+}
+
+.internal-mark,
+.tl_notice,
+table#torrent_table strong,
+td.unread:before,
+td.unread_locked:before,
+td.unread_locked_sticky:before,
+td.unread_sticky:before {
+  color: var(--hb-warn) !important;
+}
+
+.alertbar,
+.warning,
+.error,
+.invalid,
+.greenbox,
+.goldbox,
+.bluebox,
+.redbox {
+  border-radius: var(--hb-radius-sm) !important;
+}
+
+.greenbox {
+  border: 1px solid #10964c !important;
+  background-color: #1f6f43 !important;
+  color: #ffffff !important;
+}
+
+.goldbox {
+  border: 1px solid #d29922 !important;
+  background-color: #9e6a03 !important;
+  color: #ffffff !important;
+}
+
+.goldbox a {
+  color: #ffffff !important;
+}
+
+.bluebox {
+  border: 1px solid #388bfd !important;
+  background-color: #0d419d !important;
+  color: #ffffff !important;
+}
+
+.redbox {
+  border: 1px solid var(--hb-danger-hover) !important;
+  background-color: #8e1519 !important;
+  color: #ffffff !important;
+}
+
+/* Torrent labels */
+html body .tl_seeding,
+html body strong.tl_seeding,
+html body .torrent_label.tl_seeding,
+html body strong.torrent_label.tl_seeding,
+html body table .tl_seeding,
+html body table strong.tl_seeding,
+html body #torrent_table .tl_seeding,
+html body #torrent_table strong.tl_seeding,
+html body .torrent_table .tl_seeding,
+html body .torrent_table strong.tl_seeding {
+  color: var(--hb-success, #3fb950) !important;
+  -webkit-text-fill-color: var(--hb-success, #3fb950) !important;
+}
+
+html body .tl_snatched,
+html body strong.tl_snatched,
+html body .torrent_label.tl_snatched,
+html body strong.torrent_label.tl_snatched,
+html body table .tl_snatched,
+html body table strong.tl_snatched,
+html body #torrent_table .tl_snatched,
+html body #torrent_table strong.tl_snatched,
+html body .torrent_table .tl_snatched,
+html body .torrent_table strong.tl_snatched {
+  color: var(--hb-danger, #ff7b72) !important;
+  -webkit-text-fill-color: var(--hb-danger, #ff7b72) !important;
+}
+
+html body .new-torrent,
+html body strong.new-torrent,
+html body .torrent_label.new-torrent,
+html body strong.torrent_label.new-torrent,
+html body table .new-torrent,
+html body table strong.new-torrent,
+html body #torrent_table .new-torrent,
+html body #torrent_table strong.new-torrent,
+html body .torrent_table .new-torrent,
+html body .torrent_table strong.new-torrent {
+  color: var(--hb-accent-hover) !important;
+  -webkit-text-fill-color: var(--hb-accent-hover) !important;
+}
+
+/* Icons */
+a.tooltip.download_ic,
+a.tooltip.download_ic:link,
+a.tooltip.download_ic:visited,
+a.download_ic,
+a.download_ic:link,
+a.download_ic:visited,
+.download_ic,
+.download_ic:link,
+.download_ic:visited,
+.download_ic i,
+a.download_ic i,
+a.tooltip.download_ic i,
+a.tooltip.download_ic i.fa,
+a.tooltip.download_ic i.fa.fa-download {
+  color: var(--hb-success) !important;
+}
+
+a.tooltip.download_ic:hover,
+a.download_ic:hover,
+.download_ic:hover,
+.download_ic:hover i,
+a.download_ic:hover i,
+a.tooltip.download_ic:hover i,
+a.tooltip.download_ic:hover i.fa,
+a.tooltip.download_ic:hover i.fa.fa-download {
+  color: var(--hb-success-hover) !important;
+}
+
+a.tooltip.report_ic,
+a.tooltip.report_ic:link,
+a.tooltip.report_ic:visited,
+a.report_ic,
+a.report_ic:link,
+a.report_ic:visited,
+.report_ic,
+.report_ic:link,
+.report_ic:visited,
+.report_ic i,
+a.report_ic i,
+a.tooltip.report_ic i,
+a.tooltip.report_ic i.fa,
+a.tooltip.report_ic i.fa.fa-exclamation-triangle {
+  color: var(--hb-danger) !important;
+}
+
+a.tooltip.report_ic:hover,
+a.report_ic:hover,
+.report_ic:hover,
+.report_ic:hover i,
+a.report_ic:hover i,
+a.tooltip.report_ic:hover i,
+a.tooltip.report_ic:hover i.fa,
+a.tooltip.report_ic:hover i.fa.fa-exclamation-triangle {
+  color: var(--hb-danger-hover) !important;
+}
+
+.token_ic { color: #d2a8ff !important; }
+.reseed_ic { color: #d29922 !important; }
+.bookmark_ic { color: var(--hb-warn) !important; }
+
+svg {
+  fill: var(--hb-text) !important;
+}
+
+.show_torrents:before,
+.hide_torrents:before,
+.cats_movies:before,
+.cats_tv:before,
+.cats_theater:before,
+.cats_games:before,
+.cats_software:before,
+.cats_porno:before,
+.cats_music:before,
+.cats_books:before,
+.cats_other:before,
+.cats_moviespacks:before {
+  color: var(--hb-text) !important;
+}
+
+/* Pagination */
+.page-link,
+.next-prev,
+.next,
+.last,
+.prev,
+.first,
+.nolink {
+  color: var(--hb-text) !important;
+  background: var(--hb-panel-2) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-pill) !important;
+  padding: 3px 8px !important;
+}
+
+.page-link:hover,
+.next-prev:hover,
+.next:hover,
+.last:hover,
+.prev:hover,
+.first:hover {
+  background: var(--hb-accent-soft) !important;
+  color: var(--hb-accent-hover) !important;
+  border-color: var(--hb-accent-border) !important;
+}
+
+.tab {
+  background: var(--hb-panel) !important;
+  border-color: transparent !important;
+}
+
+.tab button {
+  color: var(--hb-text) !important;
+}
+
+.tab button:hover,
+.tab button.active {
+  background: var(--hb-panel-3) !important;
+}
+
+.autocomplete-suggestions,
+.autocomplete-suggestion {
+  background: var(--hb-panel) !important;
+  color: var(--hb-text) !important;
+  border-color: var(--hb-border) !important;
+}
+
+.autocomplete-suggestion {
+  border-bottom: 1px solid var(--hb-border) !important;
+}
+
+.autocomplete-suggestion:hover,
+.autocomplete-selected {
+  background-color: var(--hb-panel-2) !important;
+  color: var(--hb-text-strong) !important;
+}
+
+.multi-select-menu,
+.multi-select-button {
+  background: var(--hb-panel) !important;
+  color: var(--hb-text) !important;
+  border-color: var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+}
+
+.multi-select-menuitem:hover {
+  background: var(--hb-panel-2) !important;
+}
+
+img.banner,
+#artist .sidebar img,
+#covers img,
+.group_image img,
+.torrent_screenshots > img {
+  border-radius: var(--hb-radius) !important;
+  border: 1px solid var(--hb-border) !important;
+  box-shadow: var(--hb-shadow) !important;
+}
+
+/* Torrent filter box */
+html body#torrents form.search_form,
+html body form.search_form:has(.box.filter_torrents) {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+html body .box.filter_torrents {
+  background: var(--hb-panel) !important;
+  background-color: var(--hb-panel) !important;
+  background-image: none !important;
+  border-radius: var(--hb-radius) !important;
+  overflow: hidden !important;
+}
+
+html body .filter_torrents div.submit.ft_submit,
+html body div.submit.ft_submit,
+html body .submit.ft_submit {
+  background: var(--hb-panel) !important;
+  background-color: var(--hb-panel) !important;
+  color: var(--hb-text) !important;
+  border-top: 1px solid var(--hb-border-soft) !important;
+  padding: 10px !important;
+}
+
+html body .filter_torrents div.submit.ft_submit input[type="submit"],
+html body .filter_torrents div.submit.ft_submit input[type="button"],
+html body .submit.ft_submit input[type="submit"],
+html body .submit.ft_submit input[type="button"] {
+  background: linear-gradient(180deg, #2ea043, #238636) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(63, 185, 80, 0.72) !important;
+  border-radius: var(--hb-radius-pill) !important;
+  font-weight: 700 !important;
+}
+
+html body .filter_torrents div.submit.ft_submit input[type="submit"]:hover,
+html body .filter_torrents div.submit.ft_submit input[type="button"]:hover,
+html body .submit.ft_submit input[type="submit"]:hover,
+html body .submit.ft_submit input[type="button"]:hover {
+  background: linear-gradient(180deg, #3fb950, #2ea043) !important;
+  color: #ffffff !important;
+  border-color: var(--hb-accent-border) !important;
+}
+
+/* WysiBB editor */
+html body .wysibb {
+  background: var(--hb-panel) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-lg) !important;
+  box-shadow: var(--hb-shadow) !important;
+  overflow: visible !important;
+  font-family: var(--hb-font) !important;
+  color: var(--hb-text) !important;
+  position: relative !important;
+  z-index: 100 !important;
+}
+
+html body .wysibb .wysibb-text {
+  background: var(--hb-bg) !important;
+  margin: 0 !important;
+  padding: 10px !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+html body .wysibb .wysibb-text-editor,
+html body .wysibb .wysibb-body,
+html body .wysibb .wysibb-text-editor.wysibb-body {
+  background: #0d1117 !important;
+  color: #f0f6fc !important;
+  min-height: 160px !important;
+  padding: 14px 16px !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius) !important;
+  outline: none !important;
+  overflow: auto !important;
+  box-sizing: border-box !important;
+  direction: rtl !important;
+  text-align: right !important;
+  line-height: 1.55 !important;
+  font-family: var(--hb-font) !important;
+  font-size: 14px !important;
+}
+
+html body .wysibb .wysibb-body a {
+  color: var(--hb-link) !important;
+  text-decoration: underline !important;
+}
+
+html body .wysibb .wysibb-body p,
+html body .wysibb .wysibb-body div,
+html body .wysibb .wysibb-text-editor p,
+html body .wysibb .wysibb-text-editor div {
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 1.5em !important;
+  line-height: 1.5 !important;
+  float: none !important;
+  clear: none !important;
+  position: static !important;
+}
+
+html body .wysibb .wysibb-body p:empty::before,
+html body .wysibb .wysibb-body div:empty::before,
+html body .wysibb .wysibb-text-editor p:empty::before,
+html body .wysibb .wysibb-text-editor div:empty::before {
+  content: "\00a0";
+}
+
+html body .wysibb .wysibb-toolbar {
+  float: none !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  background: linear-gradient(180deg, var(--hb-panel-3), var(--hb-panel)) !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--hb-border) !important;
+  padding: 6px 8px 6px 86px !important;
+  color: var(--hb-text) !important;
+  position: relative !important;
+  z-index: 500 !important;
+}
+
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 3px !important;
+  margin: 0 4px 4px 0 !important;
+  padding: 0 5px 0 0 !important;
+  border-right: 1px solid var(--hb-border-soft) !important;
+  vertical-align: middle !important;
+  overflow: visible !important;
+}
+
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn,
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.wbb-select {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 30px !important;
+  height: 30px !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 4px !important;
+  background: transparent !important;
+  color: var(--hb-text) !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--hb-radius-sm) !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.08s ease !important;
+  position: relative !important;
+  overflow: visible !important;
+  z-index: 60 !important;
+}
+
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn:hover,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn:hover {
+  background: var(--hb-panel-hover) !important;
+  border-color: var(--hb-border) !important;
+  color: var(--hb-text-strong) !important;
+}
+
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn:active,
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.on,
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.on:hover {
+  background: var(--hb-accent-soft) !important;
+  border-color: var(--hb-accent-border) !important;
+  color: var(--hb-accent-hover) !important;
+  transform: translateY(1px) !important;
+}
+
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-inner {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  margin: 0 !important;
+}
+
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn .fonticon {
+  color: var(--hb-text) !important;
+  text-shadow: none !important;
+  font-size: 18px !important;
+  line-height: 1 !important;
+}
+
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn:hover .fonticon,
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.on .fonticon {
+  color: var(--hb-accent-hover) !important;
+}
+
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-text,
+html body .wysibb .wysibb-toolbar .modeSwitch .modesw {
+  color: var(--hb-text) !important;
+  font-family: var(--hb-font) !important;
+  font-weight: 700 !important;
+  line-height: 28px !important;
+  text-transform: none !important;
+}
+
+html body .wysibb .wysibb-toolbar .modeSwitch {
+  position: absolute !important;
+  top: 6px !important;
+  right: 8px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  z-index: 3 !important;
+  overflow: visible !important;
+}
+
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 72px !important;
+  min-width: 72px !important;
+  height: 30px !important;
+  padding: 0 8px !important;
+  margin: 0 !important;
+  background: transparent !important;
+  color: var(--hb-text) !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--hb-radius-sm) !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  position: relative !important;
+}
+
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn.on,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn.on:hover,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn:active {
+  background: var(--hb-accent-soft) !important;
+  border-color: var(--hb-accent-border) !important;
+}
+
+html body .wysibb .wysibb-toolbar .modeSwitch .modesw,
+html body .wysibb .wysibb-toolbar .modeSwitch .btn-inner.modesw {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--hb-text) !important;
+  font-family: var(--hb-font) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  line-height: 28px !important;
+  text-align: center !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* WysiBB tooltips */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-tooltip,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn span.btn-tooltip {
+  display: none !important;
+  position: absolute !important;
+  top: 38px !important;
+  bottom: auto !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  min-width: max-content !important;
+  max-width: 260px !important;
+  padding: 6px 10px !important;
+  background: var(--hb-panel-3) !important;
+  color: var(--hb-text-strong) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+  box-shadow: var(--hb-shadow-strong) !important;
+  font-family: var(--hb-font) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  z-index: 9999999 !important;
+  pointer-events: none !important;
+}
+
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn:hover span.btn-tooltip,
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn:focus span.btn-tooltip,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn:hover span.btn-tooltip,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn:focus span.btn-tooltip {
+  display: block !important;
+}
+
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-tooltip ins,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn span.btn-tooltip ins {
+  display: block !important;
+  position: absolute !important;
+  top: -7px !important;
+  bottom: auto !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  width: 0 !important;
+  height: 0 !important;
+  border-left: 7px solid transparent !important;
+  border-right: 7px solid transparent !important;
+  border-bottom: 7px solid var(--hb-panel-3) !important;
+  border-top: 0 !important;
+  background: transparent !important;
+}
+
+/* WysiBB dropdowns */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn .wbb-list {
+  background: var(--hb-panel) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius) !important;
+  box-shadow: var(--hb-shadow-strong) !important;
+  padding: 6px !important;
+  z-index: 10000 !important;
+}
+
+html body .wbb-select .option,
+html body .wbb-list .nc {
+  color: var(--hb-text) !important;
+  border-radius: var(--hb-radius-sm) !important;
+}
+
+html body .wbb-select .option:hover,
+html body .wbb-list .nc:hover {
+  background: var(--hb-panel-hover) !important;
+  color: var(--hb-text-strong) !important;
+}
+
+html body .wbb-select .option.selected {
+  background: var(--hb-accent) !important;
+  color: #ffffff !important;
+}
+
+html body .wbb-list .sc {
+  border: 1px solid var(--hb-border) !important;
+  border-radius: 5px !important;
+}
+
+html body .wbb-list .sc:hover {
+  border-color: var(--hb-accent-border) !important;
+  box-shadow: 0 0 0 2px var(--hb-accent-soft) !important;
+}
+
+html body .wysibb .bottom-resize-line {
+  background: var(--hb-panel-2) !important;
+  border-top: 1px solid var(--hb-border) !important;
+}
+
+html body .wysibb .bottom-resize-line:hover,
+html body .wysibb .bottom-resize-line.drag {
+  background: var(--hb-panel-hover) !important;
+}
+
+/* WysiBB modal */
+html body #wbbmodal {
+  background: rgba(1, 4, 9, 0.72) !important;
+  backdrop-filter: blur(4px);
+}
+
+html body #wbbmodal .wbbm {
+  background: var(--hb-panel) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-lg) !important;
+  box-shadow: var(--hb-shadow-strong) !important;
+  overflow: hidden !important;
+}
+
+html body #wbbmodal .wbbm-title {
+  background: linear-gradient(180deg, var(--hb-panel-3), var(--hb-panel)) !important;
+  color: var(--hb-text-strong) !important;
+  border-bottom: 1px solid var(--hb-border) !important;
+}
+
+html body #wbbmodal .wbbm-title .wbbclose {
+  color: var(--hb-muted) !important;
+}
+
+html body #wbbmodal .wbbm-title .wbbclose:hover {
+  color: var(--hb-danger) !important;
+}
+
+html body #wbbmodal .wbbm-cont,
+html body #wbbmodal .wbbm-tablist {
+  background: var(--hb-panel) !important;
+  color: var(--hb-text) !important;
+}
+
+html body #wbbmodal .wbbm-tablist ul li {
+  border-radius: var(--hb-radius-sm) !important;
+  color: var(--hb-text) !important;
+}
+
+html body #wbbmodal .wbbm-tablist ul li:hover {
+  background: var(--hb-panel-hover) !important;
+}
+
+html body #wbbmodal .wbbm-tablist ul li.on,
+html body #wbbmodal .wbbm-tablist ul li.on:hover {
+  background: var(--hb-accent) !important;
+  color: #ffffff !important;
+}
+
+html body #wbbmodal .wbbm-bottom {
+  background: var(--hb-panel-2) !important;
+  border-top: 1px solid var(--hb-border) !important;
+}
+
+html body #wbbmodal input,
+html body #wbbmodal .div-modal-text {
+  background: var(--hb-bg) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+}
+
+html body #wbbmodal .wbb-button {
+  background: linear-gradient(180deg, #2ea043, #238636) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(63, 185, 80, 0.72) !important;
+  border-radius: var(--hb-radius-pill) !important;
+}
+
+html body #wbbmodal .wbb-button:hover {
+  background: linear-gradient(180deg, #3fb950, #2ea043) !important;
+}
+
+html body #wbbmodal .wbb-cancel-button {
+  background: var(--hb-panel-3) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-pill) !important;
+}
+
+html body #wbbmodal .wbb-cancel-button:hover {
+  background: var(--hb-panel-hover) !important;
+}
+
+html body #wbbmodal .wbb-remove-button {
+  background: #da3633 !important;
+  color: #ffffff !important;
+  border: 1px solid var(--hb-danger) !important;
+  border-radius: var(--hb-radius-pill) !important;
+}
+
+html body #wbbmodal .wbb-remove-button:hover {
+  background: var(--hb-danger-hover) !important;
+}
+
+/* Donation stays intentionally highlighted. */
+html body #menu ul > li#nav_donate > a,
+html body #menu ul > li#nav_donate > a:link,
+html body #menu ul > li#nav_donate > a:visited,
+html body li#nav_donate > a,
+html body li#nav_donate > a:link,
+html body li#nav_donate > a:visited,
+html body a[href="/donate.php"],
+html body a[href="donate.php"] {
+  color: #ff807b !important;
+  font-weight: 800 !important;
+  box-shadow: inset 0 -2px 0 rgba(255, 128, 123, 0.8) !important;
+}
+
+html body #menu ul > li#nav_donate > a:hover,
+html body li#nav_donate > a:hover,
+html body a[href="/donate.php"]:hover,
+html body a[href="donate.php"]:hover {
+  color: #ff9b96 !important;
+  text-shadow: 0 0 8px rgba(255, 128, 123, 0.35) !important;
+}
+
+/* Forum category title fix */
+html body .forum_list h3.forum_category_title,
+html body h3.forum_category_title,
+html body .forum_category_title {
+  background: linear-gradient(180deg, var(--hb-panel-3), var(--hb-panel)) !important;
+  background-color: var(--hb-panel-3) !important;
+  color: var(--hb-text-strong) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-bottom: 0 !important;
+  border-top-left-radius: var(--hb-radius) !important;
+  border-top-right-radius: var(--hb-radius) !important;
+  padding: 8px 12px !important;
+  margin: 12px 0 0 0 !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  text-align: right !important;
+  box-shadow: none !important;
+}
+
+html body .forum_list table.forum_index,
+html body table.forum_index {
+  margin-top: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border: 1px solid var(--hb-border) !important;
+  background: var(--hb-panel) !important;
+  overflow: hidden !important;
+}
+
+html body table.forum_index tr.colhead,
+html body table.forum_index tr.colhead_dark,
+html body table.forum_index tr.colhead td,
+html body table.forum_index tr.colhead_dark td,
+html body .forum_index .colhead,
+html body .forum_index .colhead_dark {
+  background: linear-gradient(180deg, var(--hb-panel-3), var(--hb-panel)) !important;
+  background-color: var(--hb-panel-3) !important;
+  color: var(--hb-text-strong) !important;
+  border-color: var(--hb-border) !important;
+}
+
+html body table.forum_index td,
+html body .forum_index tbody td {
+  background: var(--hb-panel) !important;
+  color: var(--hb-text) !important;
+  border-bottom: 1px solid var(--hb-border-soft) !important;
+}
+
+html body table.forum_index tr:hover td,
+html body .forum_index tbody tr:hover td {
+  background: var(--hb-panel-hover) !important;
+}
+
+/* Legacy BBCode edit editor */
+html body form[id^="form"] {
+  overflow: visible !important;
+}
+
+html body ul.bbcode_bar,
+html body form[id^="form"] ul.bbcode_bar {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 4px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 7px 8px !important;
+  background: linear-gradient(180deg, var(--hb-panel-3), var(--hb-panel)) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-bottom: 0 !important;
+  border-top-left-radius: var(--hb-radius) !important;
+  border-top-right-radius: var(--hb-radius) !important;
+  list-style: none !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+html body ul.bbcode_bar > li,
+html body form[id^="form"] ul.bbcode_bar > li {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  vertical-align: middle !important;
+  overflow: visible !important;
+}
+
+html body ul.bbcode_bar a,
+html body ul.bbcode_bar button,
+html body ul.bbcode_bar input,
+html body ul.bbcode_bar span,
+html body form[id^="form"] ul.bbcode_bar a,
+html body form[id^="form"] ul.bbcode_bar button,
+html body form[id^="form"] ul.bbcode_bar input,
+html body form[id^="form"] ul.bbcode_bar span {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 28px !important;
+  height: 28px !important;
+  margin: 0 !important;
+  padding: 3px 5px !important;
+  background: transparent !important;
+  color: var(--hb-text) !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--hb-radius-sm) !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  line-height: 1 !important;
+}
+
+html body ul.bbcode_bar a:hover,
+html body ul.bbcode_bar button:hover,
+html body ul.bbcode_bar input:hover,
+html body ul.bbcode_bar span:hover,
+html body form[id^="form"] ul.bbcode_bar a:hover,
+html body form[id^="form"] ul.bbcode_bar button:hover,
+html body form[id^="form"] ul.bbcode_bar input:hover,
+html body form[id^="form"] ul.bbcode_bar span:hover {
+  background: var(--hb-panel-hover) !important;
+  color: var(--hb-accent-hover) !important;
+  border-color: var(--hb-accent-border) !important;
+}
+
+html body ul.bbcode_bar img,
+html body ul.bbcode_bar i,
+html body ul.bbcode_bar .fa,
+html body ul.bbcode_bar [class^="bbcode"],
+html body ul.bbcode_bar [class*="bbcode"],
+html body form[id^="form"] ul.bbcode_bar img,
+html body form[id^="form"] ul.bbcode_bar i,
+html body form[id^="form"] ul.bbcode_bar .fa,
+html body form[id^="form"] ul.bbcode_bar [class^="bbcode"],
+html body form[id^="form"] ul.bbcode_bar [class*="bbcode"] {
+  opacity: 1 !important;
+  filter: none !important;
+  color: var(--hb-text) !important;
+}
+
+html body textarea[id^="editbox"],
+html body form[id^="form"] textarea[name="body"],
+html body form[id^="form"] textarea[id^="editbox"] {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 220px !important;
+  margin: 0 !important;
+  padding: 14px 16px !important;
+  background: #0d1117 !important;
+  color: #f0f6fc !important;
+  border: 1px solid var(--hb-border) !important;
+  border-top: 0 !important;
+  border-bottom-left-radius: var(--hb-radius) !important;
+  border-bottom-right-radius: var(--hb-radius) !important;
+  font-family: var(--hb-mono), Consolas, "Courier New", monospace !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  direction: rtl !important;
+  text-align: right !important;
+  outline: none !important;
+  box-shadow: var(--hb-shadow) !important;
+  box-sizing: border-box !important;
+  resize: vertical !important;
+}
+
+html body textarea[id^="editbox"]:focus,
+html body form[id^="form"] textarea[name="body"]:focus,
+html body form[id^="form"] textarea[id^="editbox"]:focus {
+  border-color: var(--hb-accent-hover) !important;
+  box-shadow: var(--hb-focus-ring), var(--hb-shadow) !important;
+}
+
+html body textarea[id^="editbox"]::selection,
+html body form[id^="form"] textarea[name="body"]::selection {
+  background: rgba(249, 115, 22, 0.35) !important;
+  color: #ffffff !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--hb-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hb-border);
+  border-radius: var(--hb-radius-pill);
+  border: 2px solid var(--hb-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
+
+::selection {
+  background: rgba(249, 115, 22, 0.35);
+  color: #ffffff;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html body *,
+  html body *::before,
+  html body *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== Sidebar stats: preserve original rank colors, fix only unreadable dark colors ===== */
+
+/* Do not flatten sidebar/rank colors. Only improve spacing/readability. */
+html body .sidebar .box .stats,
+html body .sidebar .box .stats.nobullet,
+html body .sidebar .box ul.stats,
+html body .sidebar .box ul.stats.nobullet {
+  line-height: 1.55 !important;
+}
+
+/* Keep original rank/user colors, but make text sharper */
+html body .sidebar .box .stats a,
+html body .sidebar .box .stats span,
+html body .sidebar .box .stats b,
+html body .sidebar .box .stats strong,
+html body .sidebar .box .stats.nobullet a,
+html body .sidebar .box .stats.nobullet span,
+html body .sidebar .box .stats.nobullet b,
+html body .sidebar .box .stats.nobullet strong {
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Fix only colors that are too dark for dark mode */
+html body .sidebar .box .stats [style*="black"],
+html body .sidebar .box .stats [style*="#000"],
+html body .sidebar .box .stats [style*="#111"],
+html body .sidebar .box .stats [style*="#222"],
+html body .sidebar .box .stats [style*="rgb(0"],
+html body .sidebar .box .stats.nobullet [style*="black"],
+html body .sidebar .box .stats.nobullet [style*="#000"],
+html body .sidebar .box .stats.nobullet [style*="#111"],
+html body .sidebar .box .stats.nobullet [style*="#222"],
+html body .sidebar .box .stats.nobullet [style*="rgb(0"] {
+  color: #a7b0bd !important;
+  -webkit-text-fill-color: #a7b0bd !important;
+}
+
+/* Old plain green is too dark on this background */
+html body .sidebar .box .stats [style*="green"],
+html body .sidebar .box .stats.nobullet [style*="green"] {
+  color: #22c55e !important;
+  -webkit-text-fill-color: #22c55e !important;
+}
+
+/* Old plain blue can be too low contrast */
+html body .sidebar .box .stats [style*="blue"],
+html body .sidebar .box .stats.nobullet [style*="blue"] {
+  color: #38bdf8 !important;
+  -webkit-text-fill-color: #38bdf8 !important;
+}
+
+/* Keep orange/yellow readable but not radioactive */
+html body .sidebar .box .stats [style*="orange"],
+html body .sidebar .box .stats.nobullet [style*="orange"] {
+  color: #fb923c !important;
+  -webkit-text-fill-color: #fb923c !important;
+}
+
+html body .sidebar .box .stats [style*="yellow"],
+html body .sidebar .box .stats.nobullet [style*="yellow"] {
+  color: #fde047 !important;
+  -webkit-text-fill-color: #fde047 !important;
+}
+
+/* Remove accidental orange header artifacts everywhere */
+html body .head::after,
+html body .panel__heading::after,
+html body .forum-post__heading::after,
+html body .box.filter_torrents .head::after,
+html body .box.news_post .head::after,
+html body #blog .head::after,
+html body #inbox .box .head::after {
+  content: none !important;
+  display: none !important;
+}
