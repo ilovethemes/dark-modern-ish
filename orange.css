@@ -1,0 +1,25 @@
+@import url("./common.css");
+
+/* ===== Dark Modern Ish - Orange Accent ===== */
+/* High-contrast orange accent. Semantic colors remain defined in common.css:
+   success/download = green, danger/report = red, warning/freeleech = yellow,
+   leeching/new = orange, permission ranks = rank-specific colors. */
+
+:root {
+  /* Main theme accent */
+  --hb-accent: #f97316;
+  --hb-accent-hover: #fb923c;
+  --hb-accent-soft: rgba(249, 115, 22, 0.20);
+  --hb-accent-border: rgba(251, 146, 60, 0.55);
+
+  /* Links stay blue for readability and recognition */
+  --hb-link: #60a5fa;
+  --hb-link-hover: #93c5fd;
+
+  /* Selection should follow the theme accent */
+  --hb-selection-bg: rgba(249, 115, 22, 0.35);
+  --hb-selection-text: #ffffff;
+
+  /* Focus ring uses the accent but keeps enough contrast */
+  --hb-focus-ring: rgba(249, 115, 22, 0.28);
+}
