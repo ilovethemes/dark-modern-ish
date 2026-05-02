@@ -1335,3 +1335,65 @@ html body a[href="donate.php"]:hover {
   color: #ff9b96 !important;
   text-shadow: 0 0 8px rgba(255, 128, 123, 0.35) !important;
 }
+
+/* ===== Forum category title modern dark fix ===== */
+
+/* Override old Dark-Blue teal forum category bars */
+html body .forum_list h3.forum_category_title,
+html body h3.forum_category_title,
+html body .forum_category_title {
+  background: linear-gradient(180deg, var(--hb-panel-3), var(--hb-panel)) !important;
+  background-color: var(--hb-panel-3) !important;
+  color: var(--hb-text-strong) !important;
+
+  border: 1px solid var(--hb-border) !important;
+  border-bottom: 0 !important;
+
+  border-top-left-radius: var(--hb-radius) !important;
+  border-top-right-radius: var(--hb-radius) !important;
+
+  padding: 8px 12px !important;
+  margin: 12px 0 0 0 !important;
+
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  text-align: right !important;
+  box-shadow: none !important;
+}
+
+/* Make the forum table connect cleanly under the category title */
+html body .forum_list table.forum_index,
+html body table.forum_index {
+  margin-top: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border: 1px solid var(--hb-border) !important;
+  background: var(--hb-panel) !important;
+  overflow: hidden !important;
+}
+
+/* Keep forum table header dark, not teal */
+html body table.forum_index tr.colhead,
+html body table.forum_index tr.colhead_dark,
+html body table.forum_index tr.colhead td,
+html body table.forum_index tr.colhead_dark td,
+html body .forum_index .colhead,
+html body .forum_index .colhead_dark {
+  background: linear-gradient(180deg, var(--hb-panel-3), var(--hb-panel)) !important;
+  background-color: var(--hb-panel-3) !important;
+  color: var(--hb-text-strong) !important;
+  border-color: var(--hb-border) !important;
+}
+
+/* Forum rows */
+html body table.forum_index td,
+html body .forum_index tbody td {
+  background: var(--hb-panel) !important;
+  color: var(--hb-text) !important;
+  border-bottom: 1px solid var(--hb-border-soft) !important;
+}
+
+html body table.forum_index tr:hover td,
+html body .forum_index tbody tr:hover td {
+  background: var(--hb-panel-hover) !important;
+}
