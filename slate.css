@@ -1,0 +1,47 @@
+@import url("./common.css");
+
+/* ===== Dark Modern Ish - Neutral Slate ===== */
+/* Clean neutral version, less colorful. Good default for readability. */
+
+:root {
+  --hb-bg: #0b0f14;
+  --hb-bg-soft: #0f141b;
+
+  --hb-panel: #151b23;
+  --hb-panel-2: #1b232e;
+  --hb-panel-3: #222c38;
+  --hb-panel-hover: #2a3645;
+
+  --hb-border: #3a4656;
+  --hb-border-soft: #27313d;
+
+  --hb-text: #dbe3ec;
+  --hb-text-strong: #f8fafc;
+  --hb-muted: #9aa8b7;
+
+  --hb-link: #7dd3fc;
+  --hb-link-hover: #bae6fd;
+
+  --hb-accent: #64748b;
+  --hb-accent-hover: #94a3b8;
+  --hb-accent-soft: rgba(148, 163, 184, 0.20);
+  --hb-accent-border: rgba(203, 213, 225, 0.42);
+
+  --hb-button-primary-bg: #475569;
+  --hb-button-primary-bg-hover: #64748b;
+  --hb-button-primary-border: rgba(203, 213, 225, 0.42);
+  --hb-button-primary-text: #ffffff;
+
+  --hb-focus-border: #94a3b8;
+  --hb-focus-shadow: rgba(148, 163, 184, 0.24);
+
+  --hb-pill-hover-bg: rgba(148, 163, 184, 0.18);
+  --hb-pill-hover-text: #e2e8f0;
+  --hb-pill-hover-border: rgba(203, 213, 225, 0.42);
+
+  --hb-nav-active-color: #e2e8f0;
+  --hb-nav-active-border: #94a3b8;
+
+  --hb-selection-bg: rgba(148, 163, 184, 0.34);
+  --hb-selection-text: #ffffff;
+}
