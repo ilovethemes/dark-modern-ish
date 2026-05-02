@@ -56,6 +56,10 @@
    /* Fixed white/black tokens */
    --hb-white: #ffffff;
    --hb-black: #000000;
+
+   /* TV title labels */
+   --hb-tv-title-season: var(--hb-accent-hover);
+   --hb-tv-title-episode: var(--hb-text-strong);
    
    /* Overlays and shadows */
    --hb-shadow-menu: rgba(0, 0, 0, 0.28);
@@ -1975,4 +1979,20 @@ html body .sidebar a[class*="permission_"]:hover {
   -webkit-text-fill-color: currentColor !important;
   text-decoration: none !important;
   filter: brightness(1.18) saturate(1.08) !important;
+}
+
+/* ===== TV title labels override ===== */
+
+html body .tv_title_season,
+html body span.tv_title_season,
+html body a.tv_title_season {
+  color: var(--hb-tv-title-season) !important;
+  -webkit-text-fill-color: var(--hb-tv-title-season) !important;
+}
+
+html body .tv_title_episode,
+html body span.tv_title_episode,
+html body a.tv_title_episode {
+  color: var(--hb-tv-title-episode) !important;
+  -webkit-text-fill-color: var(--hb-tv-title-episode) !important;
 }
