@@ -866,20 +866,32 @@ html body .wysibb .wysibb-toolbar .wysibb-toolbar-container {
   vertical-align: middle !important;
 }
 
-/* Toolbar buttons */
-html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn,
-html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.wbb-select,
+/* ===== WysiBB mode switch / BBCODE button fix ===== */
+
+html body .wysibb .wysibb-toolbar {
+  position: relative !important;
+  padding-right: 86px !important;
+}
+
+html body .wysibb .wysibb-toolbar .modeSwitch {
+  position: absolute !important;
+  top: 6px !important;
+  right: 8px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  z-index: 3 !important;
+}
+
 html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-
-  min-width: 30px !important;
+  width: 72px !important;
+  min-width: 72px !important;
   height: 30px !important;
-  width: auto !important;
-
+  padding: 0 8px !important;
   margin: 0 !important;
-  padding: 0 4px !important;
 
   background: transparent !important;
   color: var(--hb-text) !important;
@@ -887,8 +899,41 @@ html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn {
   border-radius: var(--hb-radius-sm) !important;
   box-shadow: none !important;
 
-  cursor: pointer !important;
-  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.08s ease !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn:hover {
+  background: var(--hb-panel-hover) !important;
+  border-color: var(--hb-border) !important;
+}
+
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn.on,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn.on:hover,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn:active {
+  background: var(--hb-accent-soft) !important;
+  border-color: var(--hb-link) !important;
+}
+
+html body .wysibb .wysibb-toolbar .modeSwitch .modesw,
+html body .wysibb .wysibb-toolbar .modeSwitch .btn-inner.modesw {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  color: var(--hb-text) !important;
+  font-family: var(--hb-font) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  line-height: 28px !important;
+  text-align: center !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 /* Button hover/active */
@@ -1100,4 +1145,83 @@ html body #wbbmodal .wbb-remove-button {
 
 html body #wbbmodal .wbb-remove-button:hover {
   background: var(--hb-danger-hover) !important;
+}
+
+/* ===== WysiBB button hover tooltips restore ===== */
+
+/* Make sure the toolbar can show floating tooltips */
+html body .wysibb,
+html body .wysibb .wysibb-toolbar,
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container,
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn,
+html body .wysibb .wysibb-toolbar .modeSwitch,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn {
+  overflow: visible !important;
+}
+
+/* Every toolbar button needs to be the positioning anchor */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn {
+  position: relative !important;
+}
+
+/* Hide tooltip by default */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-tooltip,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn span.btn-tooltip {
+  display: none !important;
+  position: absolute !important;
+
+  bottom: 38px !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+
+  min-width: max-content !important;
+  max-width: 260px !important;
+
+  padding: 6px 10px !important;
+  background: var(--hb-panel-3) !important;
+  color: var(--hb-text-strong) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+  box-shadow: var(--hb-shadow-strong) !important;
+
+  font-family: var(--hb-font) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+
+  z-index: 99999 !important;
+  pointer-events: none !important;
+}
+
+/* Show tooltip on hover/focus */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn:hover span.btn-tooltip,
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn:focus span.btn-tooltip,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn:hover span.btn-tooltip,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn:focus span.btn-tooltip {
+  display: block !important;
+}
+
+/* Tooltip arrow */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-tooltip ins,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn span.btn-tooltip ins {
+  display: block !important;
+  position: absolute !important;
+
+  left: 50% !important;
+  right: auto !important;
+  bottom: -7px !important;
+  transform: translateX(-50%) !important;
+
+  width: 0 !important;
+  height: 0 !important;
+
+  border-left: 7px solid transparent !important;
+  border-right: 7px solid transparent !important;
+  border-top: 7px solid var(--hb-panel-3) !important;
+
+  background: transparent !important;
 }
