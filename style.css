@@ -769,3 +769,18 @@ html body .torrent_table strong.tl_snatched {
   color: var(--hb-danger, #ff7b72) !important;
   -webkit-text-fill-color: var(--hb-danger, #ff7b72) !important;
 }
+
+/* New torrent - always orange */
+html body .new-torrent,
+html body strong.new-torrent,
+html body .torrent_label.new-torrent,
+html body strong.torrent_label.new-torrent,
+html body table .new-torrent,
+html body table strong.new-torrent,
+html body #torrent_table .new-torrent,
+html body #torrent_table strong.new-torrent,
+html body .torrent_table .new-torrent,
+html body .torrent_table strong.new-torrent {
+  color: #ff9f1c !important;
+  -webkit-text-fill-color: #ff9f1c !important;
+}
