@@ -27,6 +27,44 @@
   --hb-success-hover: #2ea043;
   --hb-warn: #f2cc60;
   --hb-leeching: #fb923c;
+
+   /* ===== Component color aliases ===== */
+   /* Generic action buttons. Theme files may override these. */
+   --hb-button-primary-bg: var(--hb-success);
+   --hb-button-primary-bg-hover: var(--hb-success-hover);
+   --hb-button-primary-border: var(--hb-success);
+   --hb-button-primary-text: #ffffff;
+   
+   /* Focus states. Theme files may override these. */
+   --hb-focus-border: var(--hb-link);
+   --hb-focus-shadow: var(--hb-accent-soft);
+   
+   /* Pills / tags / pagination hover. Theme files may override these. */
+   --hb-pill-hover-bg: var(--hb-accent-soft);
+   --hb-pill-hover-text: var(--hb-link-hover);
+   --hb-pill-hover-border: var(--hb-link);
+   
+   /* Navigation active state. Theme files may override these. */
+   --hb-nav-active-color: var(--hb-link-hover);
+   --hb-nav-active-border: var(--hb-accent);
+   
+   /* Code/editor colors */
+   --hb-code-bg: var(--hb-bg);
+   --hb-code-text: var(--hb-text-strong);
+   --hb-code-border: #888888;
+   
+   /* Fixed white/black tokens */
+   --hb-white: #ffffff;
+   --hb-black: #000000;
+   
+   /* Overlays and shadows */
+   --hb-shadow-menu: rgba(0, 0, 0, 0.28);
+   --hb-shadow-text: rgba(0, 0, 0, 0.55);
+   --hb-input-inner-highlight: rgba(255, 255, 255, 0.03);
+   --hb-modal-backdrop: rgba(1, 4, 9, 0.72);
+   --hb-selection-bg: rgba(88, 166, 255, 0.35);
+   --hb-selection-text: #ffffff;
+   
   --hb-radius-sm: 6px;
   --hb-radius: 10px;
   --hb-radius-lg: 14px;
@@ -385,8 +423,8 @@ button,
 a.huge-movie-list__movie__title,
 a.huge-movie-list__movie__director {
   background: var(--hb-button-primary-bg) !important;
-  color: var(--hb-white) !important;
-  border: 1px solid var(--hb-border) !important;
+  color: var(--hb-button-primary-text) !important;
+  border: 1px solid var(--hb-button-primary-border) !important;
   border-radius: var(--hb-radius-sm) !important;
   font-weight: 650 !important;
 }
@@ -395,9 +433,9 @@ input[type="submit"]:hover,
 input[type="button"]:hover,
 button:hover,
 .btn:hover {
-  background: var(--hb-success-hover) !important;
-  border-color: var(--hb-success) !important;
-  color: var(--hb-white) !important;
+  background: var(--hb-button-primary-bg-hover) !important;
+  border-color: var(--hb-button-primary-border) !important;
+  color: var(--hb-button-primary-text) !important;
 }
 
 input[type="checkbox"],
