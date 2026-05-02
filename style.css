@@ -593,6 +593,26 @@ img.banner,
   box-shadow: var(--hb-shadow) !important;
 }
 
+/* ===== Remove square parent background behind torrent filter box ===== */
+
+html body#torrents form.search_form,
+html body form.search_form:has(.box.filter_torrents) {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Keep the actual filter card responsible for its own background */
+html body .box.filter_torrents {
+  background: var(--hb-panel) !important;
+  background-color: var(--hb-panel) !important;
+  background-image: none !important;
+  border-radius: var(--hb-radius) !important;
+  overflow: hidden !important;
+}
+
 /* Semantic icon colors must beat the generic link color rules. */
 a.tooltip.download_ic,
 a.tooltip.download_ic:link,
