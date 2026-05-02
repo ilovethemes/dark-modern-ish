@@ -739,3 +739,33 @@ html body .submit.ft_submit input[type="button"]:hover {
   background: var(--hb-success-hover) !important;
   color: #ffffff !important;
 }
+
+/* Seeding - always green */
+html body .tl_seeding,
+html body strong.tl_seeding,
+html body .torrent_label.tl_seeding,
+html body strong.torrent_label.tl_seeding,
+html body table .tl_seeding,
+html body table strong.tl_seeding,
+html body #torrent_table .tl_seeding,
+html body #torrent_table strong.tl_seeding,
+html body .torrent_table .tl_seeding,
+html body .torrent_table strong.tl_seeding {
+  color: var(--hb-success, #3fb950) !important;
+  -webkit-text-fill-color: var(--hb-success, #3fb950) !important;
+}
+
+/* Snatched - always red */
+html body .tl_snatched,
+html body strong.tl_snatched,
+html body .torrent_label.tl_snatched,
+html body strong.torrent_label.tl_snatched,
+html body table .tl_snatched,
+html body table strong.tl_snatched,
+html body #torrent_table .tl_snatched,
+html body #torrent_table strong.tl_snatched,
+html body .torrent_table .tl_snatched,
+html body .torrent_table strong.tl_snatched {
+  color: var(--hb-danger, #ff7b72) !important;
+  -webkit-text-fill-color: var(--hb-danger, #ff7b72) !important;
+}
