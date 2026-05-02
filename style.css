@@ -1397,3 +1397,210 @@ html body table.forum_index tr:hover td,
 html body .forum_index tbody tr:hover td {
   background: var(--hb-panel-hover) !important;
 }
+
+
+
+/* ===== Legacy BBCode edit editor skin v2 ===== */
+
+/*
+  Used when editing existing posts.
+  This is not the full WysiBB editor.
+  It styles the legacy:
+  - ul.bbcode_bar
+  - textarea[id^="editbox"]
+
+  CSS cannot create a real BBCode/WYSIWYG toggle if the site does not render one.
+*/
+
+/* Main legacy editor wrapper behavior */
+html body form[id^="form"] {
+  overflow: visible !important;
+}
+
+/* Legacy BBCode toolbar */
+html body ul.bbcode_bar,
+html body form[id^="form"] ul.bbcode_bar {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 4px !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  margin: 0 !important;
+  padding: 7px 8px !important;
+
+  background: linear-gradient(180deg, var(--hb-panel-3), var(--hb-panel)) !important;
+  color: var(--hb-text) !important;
+
+  border: 1px solid var(--hb-border) !important;
+  border-bottom: 0 !important;
+
+  border-top-left-radius: var(--hb-radius) !important;
+  border-top-right-radius: var(--hb-radius) !important;
+
+  list-style: none !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+/* Toolbar items */
+html body ul.bbcode_bar > li,
+html body form[id^="form"] ul.bbcode_bar > li {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  list-style: none !important;
+  vertical-align: middle !important;
+  overflow: visible !important;
+}
+
+/* Toolbar links/buttons */
+html body ul.bbcode_bar a,
+html body ul.bbcode_bar button,
+html body ul.bbcode_bar input,
+html body ul.bbcode_bar span,
+html body form[id^="form"] ul.bbcode_bar a,
+html body form[id^="form"] ul.bbcode_bar button,
+html body form[id^="form"] ul.bbcode_bar input,
+html body form[id^="form"] ul.bbcode_bar span {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  min-width: 28px !important;
+  height: 28px !important;
+
+  margin: 0 !important;
+  padding: 3px 5px !important;
+
+  background: transparent !important;
+  color: var(--hb-text) !important;
+
+  border: 1px solid transparent !important;
+  border-radius: var(--hb-radius-sm) !important;
+  box-shadow: none !important;
+
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  line-height: 1 !important;
+}
+
+/* Toolbar hover */
+html body ul.bbcode_bar a:hover,
+html body ul.bbcode_bar button:hover,
+html body ul.bbcode_bar input:hover,
+html body ul.bbcode_bar span:hover,
+html body form[id^="form"] ul.bbcode_bar a:hover,
+html body form[id^="form"] ul.bbcode_bar button:hover,
+html body form[id^="form"] ul.bbcode_bar input:hover,
+html body form[id^="form"] ul.bbcode_bar span:hover {
+  background: var(--hb-panel-hover) !important;
+  color: var(--hb-link-hover) !important;
+  border-color: var(--hb-border) !important;
+}
+
+/* Keep existing old sprite/icon buttons visible */
+html body ul.bbcode_bar img,
+html body ul.bbcode_bar i,
+html body ul.bbcode_bar .fa,
+html body ul.bbcode_bar [class^="bbcode"],
+html body ul.bbcode_bar [class*="bbcode"],
+html body form[id^="form"] ul.bbcode_bar img,
+html body form[id^="form"] ul.bbcode_bar i,
+html body form[id^="form"] ul.bbcode_bar .fa,
+html body form[id^="form"] ul.bbcode_bar [class^="bbcode"],
+html body form[id^="form"] ul.bbcode_bar [class*="bbcode"] {
+  opacity: 1 !important;
+  filter: none !important;
+  color: var(--hb-text) !important;
+}
+
+/* If the legacy toolbar actually contains a BBCode/source-mode button, keep it visible */
+html body ul.bbcode_bar .bbcode,
+html body ul.bbcode_bar .bbcode_mode,
+html body ul.bbcode_bar .modeSwitch,
+html body ul.bbcode_bar [title*="BBCode"],
+html body ul.bbcode_bar [title*="bbcode"],
+html body ul.bbcode_bar [title*="קוד"],
+html body ul.bbcode_bar [title*="מקור"],
+html body form[id^="form"] ul.bbcode_bar .bbcode,
+html body form[id^="form"] ul.bbcode_bar .bbcode_mode,
+html body form[id^="form"] ul.bbcode_bar .modeSwitch,
+html body form[id^="form"] ul.bbcode_bar [title*="BBCode"],
+html body form[id^="form"] ul.bbcode_bar [title*="bbcode"],
+html body form[id^="form"] ul.bbcode_bar [title*="קוד"],
+html body form[id^="form"] ul.bbcode_bar [title*="מקור"] {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  min-width: 70px !important;
+  height: 28px !important;
+
+  padding: 3px 8px !important;
+
+  color: var(--hb-text-strong) !important;
+  background: var(--hb-panel-2) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+
+  font-weight: 700 !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+}
+
+/* The old edit textarea */
+html body textarea[id^="editbox"],
+html body form[id^="form"] textarea[name="body"],
+html body form[id^="form"] textarea[id^="editbox"] {
+  display: block !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 220px !important;
+
+  margin: 0 !important;
+  padding: 14px 16px !important;
+
+  background: #0d1117 !important;
+  color: #f0f6fc !important;
+
+  border: 1px solid var(--hb-border) !important;
+  border-top: 0 !important;
+
+  border-bottom-left-radius: var(--hb-radius) !important;
+  border-bottom-right-radius: var(--hb-radius) !important;
+
+  font-family: var(--hb-mono), Consolas, "Courier New", monospace !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+
+  direction: rtl !important;
+  text-align: right !important;
+
+  outline: none !important;
+  box-shadow: var(--hb-shadow) !important;
+  box-sizing: border-box !important;
+  resize: vertical !important;
+}
+
+/* Focus state */
+html body textarea[id^="editbox"]:focus,
+html body form[id^="form"] textarea[name="body"]:focus,
+html body form[id^="form"] textarea[id^="editbox"]:focus {
+  border-color: var(--hb-link) !important;
+  box-shadow: 0 0 0 3px var(--hb-accent-soft), var(--hb-shadow) !important;
+}
+
+/* Placeholder / selection */
+html body textarea[id^="editbox"]::selection,
+html body form[id^="form"] textarea[name="body"]::selection {
+  background: rgba(88, 166, 255, 0.35) !important;
+  color: #ffffff !important;
+}
