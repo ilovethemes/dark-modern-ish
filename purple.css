@@ -1,0 +1,46 @@
+@import url("./common.css");
+
+/* ===== Dark Modern Ish - Purple ===== */
+
+:root {
+  --hb-bg: #120b1f;
+  --hb-bg-soft: #1a102c;
+
+  --hb-panel: #1f1633;
+  --hb-panel-2: #281c3f;
+  --hb-panel-3: #332253;
+  --hb-panel-hover: #402c66;
+
+  --hb-border: #5b3f86;
+  --hb-border-soft: #392957;
+
+  --hb-text: #ede9fe;
+  --hb-text-strong: #faf5ff;
+  --hb-muted: #b5a7cf;
+
+  --hb-link: #c084fc;
+  --hb-link-hover: #d8b4fe;
+
+  --hb-accent: #9333ea;
+  --hb-accent-hover: #a855f7;
+  --hb-accent-soft: rgba(168, 85, 247, 0.22);
+  --hb-accent-border: rgba(192, 132, 252, 0.55);
+
+  --hb-button-primary-bg: #7e22ce;
+  --hb-button-primary-bg-hover: #9333ea;
+  --hb-button-primary-border: rgba(192, 132, 252, 0.58);
+  --hb-button-primary-text: #ffffff;
+
+  --hb-focus-border: #c084fc;
+  --hb-focus-shadow: rgba(168, 85, 247, 0.28);
+
+  --hb-pill-hover-bg: rgba(168, 85, 247, 0.22);
+  --hb-pill-hover-text: #d8b4fe;
+  --hb-pill-hover-border: rgba(192, 132, 252, 0.55);
+
+  --hb-nav-active-color: #d8b4fe;
+  --hb-nav-active-border: #a855f7;
+
+  --hb-selection-bg: rgba(168, 85, 247, 0.38);
+  --hb-selection-text: #ffffff;
+}
