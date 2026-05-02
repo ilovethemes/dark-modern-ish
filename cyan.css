@@ -1,0 +1,46 @@
+@import url("./common.css");
+
+/* ===== Dark Modern Ish - Cyan ===== */
+
+:root {
+  --hb-bg: #061316;
+  --hb-bg-soft: #0a1c22;
+
+  --hb-panel: #10252b;
+  --hb-panel-2: #14313a;
+  --hb-panel-3: #193d48;
+  --hb-panel-hover: #204c59;
+
+  --hb-border: #2f6673;
+  --hb-border-soft: #1d434d;
+
+  --hb-text: #cffafe;
+  --hb-text-strong: #ecfeff;
+  --hb-muted: #94b7bf;
+
+  --hb-link: #22d3ee;
+  --hb-link-hover: #67e8f9;
+
+  --hb-accent: #0891b2;
+  --hb-accent-hover: #06b6d4;
+  --hb-accent-soft: rgba(6, 182, 212, 0.22);
+  --hb-accent-border: rgba(103, 232, 249, 0.52);
+
+  --hb-button-primary-bg: #0e7490;
+  --hb-button-primary-bg-hover: #0891b2;
+  --hb-button-primary-border: rgba(103, 232, 249, 0.55);
+  --hb-button-primary-text: #ffffff;
+
+  --hb-focus-border: #22d3ee;
+  --hb-focus-shadow: rgba(6, 182, 212, 0.28);
+
+  --hb-pill-hover-bg: rgba(6, 182, 212, 0.22);
+  --hb-pill-hover-text: #67e8f9;
+  --hb-pill-hover-border: rgba(103, 232, 249, 0.52);
+
+  --hb-nav-active-color: #67e8f9;
+  --hb-nav-active-border: #22d3ee;
+
+  --hb-selection-bg: rgba(6, 182, 212, 0.36);
+  --hb-selection-text: #ffffff;
+}
