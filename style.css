@@ -22,6 +22,7 @@
   --hb-success: #3fb950;
   --hb-success-hover: #2ea043;
   --hb-warn: #f2cc60;
+  --hb-leeching: #fb923c;
   --hb-radius-sm: 6px;
   --hb-radius: 10px;
   --hb-radius-lg: 14px;
@@ -1603,4 +1604,22 @@ html body textarea[id^="editbox"]::selection,
 html body form[id^="form"] textarea[name="body"]::selection {
   background: rgba(88, 166, 255, 0.35) !important;
   color: #ffffff !important;
+}
+
+/* ===== Torrent status: leeching always orange ===== */
+
+html body .tl_leeching,
+html body strong.tl_leeching,
+html body .torrent_label.tl_leeching,
+html body strong.torrent_label.tl_leeching,
+html body table .tl_leeching,
+html body table strong.tl_leeching,
+html body #torrent_table .tl_leeching,
+html body #torrent_table strong.tl_leeching,
+html body table#torrent_table .tl_leeching,
+html body table#torrent_table strong.tl_leeching,
+html body .torrent_table .tl_leeching,
+html body .torrent_table strong.tl_leeching {
+  color: var(--hb-leeching) !important;
+  -webkit-text-fill-color: var(--hb-leeching) !important;
 }
