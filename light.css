@@ -1,0 +1,107 @@
+@import url("./common.css");
+
+
+:root {
+  color-scheme: light;
+
+  --hb-bg: #f4f6f8;
+  --hb-bg-soft: #e9eef3;
+
+  --hb-panel: #ffffff;
+  --hb-panel-2: #f8fafc;
+  --hb-panel-3: #eef2f7;
+  --hb-panel-hover: #e8f1fb;
+
+  --hb-border: #cbd5e1;
+  --hb-border-soft: #e2e8f0;
+
+  --hb-text: #1f2937;
+  --hb-text-strong: #0f172a;
+  --hb-muted: #64748b;
+
+  --hb-link: #0f66c2;
+  --hb-link-hover: #004f9e;
+
+  --hb-accent: #2563eb;
+  --hb-accent-hover: #1d4ed8;
+  --hb-accent-soft: rgba(37, 99, 235, 0.14);
+  --hb-accent-border: rgba(37, 99, 235, 0.38);
+
+  --hb-button-primary-bg: #2563eb;
+  --hb-button-primary-bg-hover: #1d4ed8;
+  --hb-button-primary-border: rgba(37, 99, 235, 0.55);
+  --hb-button-primary-text: #ffffff;
+
+  --hb-focus-border: #2563eb;
+  --hb-focus-shadow: rgba(37, 99, 235, 0.20);
+
+  --hb-pill-hover-bg: rgba(37, 99, 235, 0.12);
+  --hb-pill-hover-text: #1d4ed8;
+  --hb-pill-hover-border: rgba(37, 99, 235, 0.38);
+
+  --hb-nav-active-color: #1d4ed8;
+  --hb-nav-active-border: #2563eb;
+
+  --hb-selection-bg: rgba(37, 99, 235, 0.24);
+  --hb-selection-text: #0f172a;
+
+  --hb-shadow: 0 8px 22px rgba(15, 23, 42, 0.10);
+  --hb-shadow-strong: 0 14px 34px rgba(15, 23, 42, 0.16);
+
+  --hb-shadow-menu: rgba(15, 23, 42, 0.12);
+  --hb-shadow-text: rgba(255, 255, 255, 0.65);
+  --hb-input-inner-highlight: rgba(255, 255, 255, 0.70);
+
+  --hb-overlay-nav: rgba(255, 255, 255, 0.96);
+  --hb-overlay-userinfo: rgba(255, 255, 255, 0.82);
+  --hb-overlay-userinfo-border: rgba(203, 213, 225, 0.90);
+  --hb-modal-backdrop: rgba(15, 23, 42, 0.42);
+
+  --hb-code-bg: #f8fafc;
+  --hb-code-text: #0f172a;
+  --hb-code-border: #cbd5e1;
+
+  --hb-scrollbar-thumb-hover: #94a3b8;
+
+  /* Light-mode adjusted semantic colors */
+  --hb-success: #16803a;
+  --hb-success-hover: #0f6b2d;
+
+  --hb-danger: #dc2626;
+  --hb-danger-hover: #b91c1c;
+
+  --hb-warn: #b77900;
+  --hb-leeching: #c2410c;
+  --hb-new-torrent: #c2410c;
+
+  --hb-token: #7c3aed;
+  --hb-reseed: #b77900;
+
+  --hb-donate: #dc2626;
+  --hb-donate-hover: #b91c1c;
+  --hb-donate-glow: rgba(220, 38, 38, 0.22);
+
+  /* Permission colors adjusted for light background */
+  --hb-perm-staff: #0066b3;
+
+  --hb-perm-1000-sysop: #c00018;
+  --hb-perm-900-staff-leader: #d1123f;
+  --hb-perm-800-admin: #0066b3;
+  --hb-perm-700-coder: #b45309;
+  --hb-perm-600-moderator: #a21caf;
+  --hb-perm-450-fls: #0077aa;
+  --hb-perm-400-designer: #c0007a;
+  --hb-perm-205-uploader: #008c2e;
+  --hb-perm-200-mini-uploader: #008f5a;
+  --hb-perm-150-staff-legend: #b85c00;
+  --hb-perm-100-vip: #9a7b00;
+
+  --hb-perm-17-heb-god: #087f5b;
+  --hb-perm-16-heb-supreme: #9a6700;
+  --hb-perm-15-heb-elite: #5f8f00;
+  --hb-perm-14-heb-fanatic: #288000;
+  --hb-perm-13-heb-veteran: #087f23;
+  --hb-perm-12-heb-lover: #126b2f;
+  --hb-perm-11-heb-user: #334155;
+  --hb-perm-10-heb-rookie: #64748b;
+}
