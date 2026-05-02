@@ -144,6 +144,17 @@
   --hb-donate-hover: #ff9b96;
   --hb-donate-glow: rgba(255, 128, 123, 0.35);
 
+   /* Linkbox pills */
+   --hb-linkbox-link-bg: transparent;
+   --hb-linkbox-link-text: var(--hb-link);
+   --hb-linkbox-link-border: transparent;
+   
+   --hb-linkbox-link-hover-bg: var(--hb-pill-hover-bg);
+   --hb-linkbox-link-hover-text: var(--hb-pill-hover-text);
+   --hb-linkbox-link-hover-border: var(--hb-pill-hover-border);
+   
+   --hb-linkbox-separator: var(--hb-muted);
+
 }
 
 html,
@@ -1995,4 +2006,52 @@ html body span.tv_title_episode,
 html body a.tv_title_episode {
   color: var(--hb-tv-title-episode) !important;
   -webkit-text-fill-color: var(--hb-tv-title-episode) !important;
+}
+
+/* ===== Linkbox links ===== */
+
+html body .linkbox {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+html body .linkbox a.brackets,
+html body .linkbox .brackets {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 28px !important;
+  padding: 4px 10px !important;
+
+  background: var(--hb-linkbox-link-bg) !important;
+  color: var(--hb-linkbox-link-text) !important;
+  border: 1px solid var(--hb-linkbox-link-border) !important;
+  border-radius: var(--hb-radius-pill) !important;
+
+  text-decoration: none !important;
+  font-weight: 650 !important;
+  line-height: 1.2 !important;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease !important;
+}
+
+html body .linkbox a.brackets:hover,
+html body .linkbox .brackets:hover {
+  background: var(--hb-linkbox-link-hover-bg) !important;
+  color: var(--hb-linkbox-link-hover-text) !important;
+  border-color: var(--hb-linkbox-link-hover-border) !important;
+  box-shadow: 0 0 0 2px var(--hb-accent-soft) !important;
+}
+
+html body .linkbox a.brackets::before,
+html body .linkbox a.brackets::after,
+html body .linkbox .brackets::before,
+html body .linkbox .brackets::after {
+  content: none !important;
 }
