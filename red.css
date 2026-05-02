@@ -1,0 +1,47 @@
+@import url("./common.css");
+
+/* ===== Dark Modern Ish - Red ===== */
+/* Note: semantic danger/report colors stay separate in common.css. */
+
+:root {
+  --hb-bg: #160b0b;
+  --hb-bg-soft: #211010;
+
+  --hb-panel: #241414;
+  --hb-panel-2: #301919;
+  --hb-panel-3: #3b1f1f;
+  --hb-panel-hover: #4a2929;
+
+  --hb-border: #6b3333;
+  --hb-border-soft: #442323;
+
+  --hb-text: #fee2e2;
+  --hb-text-strong: #fff7f7;
+  --hb-muted: #c6a0a0;
+
+  --hb-link: #fca5a5;
+  --hb-link-hover: #fecaca;
+
+  --hb-accent: #dc2626;
+  --hb-accent-hover: #ef4444;
+  --hb-accent-soft: rgba(239, 68, 68, 0.22);
+  --hb-accent-border: rgba(248, 113, 113, 0.55);
+
+  --hb-button-primary-bg: #b91c1c;
+  --hb-button-primary-bg-hover: #dc2626;
+  --hb-button-primary-border: rgba(248, 113, 113, 0.58);
+  --hb-button-primary-text: #ffffff;
+
+  --hb-focus-border: #f87171;
+  --hb-focus-shadow: rgba(239, 68, 68, 0.28);
+
+  --hb-pill-hover-bg: rgba(239, 68, 68, 0.22);
+  --hb-pill-hover-text: #fecaca;
+  --hb-pill-hover-border: rgba(248, 113, 113, 0.55);
+
+  --hb-nav-active-color: #fecaca;
+  --hb-nav-active-border: #ef4444;
+
+  --hb-selection-bg: rgba(239, 68, 68, 0.36);
+  --hb-selection-text: #ffffff;
+}
