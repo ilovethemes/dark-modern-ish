@@ -784,3 +784,320 @@ html body .torrent_table strong.new-torrent {
   color: #ff9f1c !important;
   -webkit-text-fill-color: #ff9f1c !important;
 }
+
+/* ===== Modern WysiBB editor skin ===== */
+
+/* Main editor shell */
+html body .wysibb {
+  background: var(--hb-panel) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-lg) !important;
+  box-shadow: var(--hb-shadow) !important;
+  overflow: hidden !important;
+  font-family: var(--hb-font) !important;
+  color: var(--hb-text) !important;
+}
+
+/* Text/content area wrapper */
+html body .wysibb .wysibb-text {
+  background: var(--hb-bg) !important;
+  margin: 0 !important;
+  padding: 10px !important;
+}
+
+/* Actual editable area */
+html body .wysibb .wysibb-text-editor,
+html body .wysibb .wysibb-body,
+html body .wysibb .wysibb-text-editor.wysibb-body {
+  background: #0d1117 !important;
+  color: #f0f6fc !important;
+  min-height: 160px !important;
+  padding: 14px 16px !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius) !important;
+  outline: none !important;
+  overflow: auto !important;
+  box-sizing: border-box !important;
+
+  direction: rtl !important;
+  text-align: right !important;
+  line-height: 1.55 !important;
+  font-family: var(--hb-font) !important;
+  font-size: 14px !important;
+}
+
+/* Links inside editor */
+html body .wysibb .wysibb-body a {
+  color: var(--hb-link) !important;
+  text-decoration: underline !important;
+}
+
+/* Do not globally alter children layout — avoids Enter/new-line jumping */
+html body .wysibb .wysibb-body p,
+html body .wysibb .wysibb-body div {
+  margin: 0 0 0.55em 0 !important;
+  padding: 0 !important;
+  float: none !important;
+  clear: none !important;
+  position: static !important;
+}
+
+/* Toolbar */
+html body .wysibb .wysibb-toolbar {
+  float: none !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  background: linear-gradient(180deg, var(--hb-panel-3), var(--hb-panel)) !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--hb-border) !important;
+  padding: 6px 8px !important;
+  color: var(--hb-text) !important;
+}
+
+/* Toolbar groups */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 3px !important;
+  margin: 0 4px 4px 0 !important;
+  padding: 0 5px 0 0 !important;
+  border-right: 1px solid var(--hb-border-soft) !important;
+  vertical-align: middle !important;
+}
+
+/* Toolbar buttons */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn,
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.wbb-select,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  min-width: 30px !important;
+  height: 30px !important;
+  width: auto !important;
+
+  margin: 0 !important;
+  padding: 0 4px !important;
+
+  background: transparent !important;
+  color: var(--hb-text) !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--hb-radius-sm) !important;
+  box-shadow: none !important;
+
+  cursor: pointer !important;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.08s ease !important;
+}
+
+/* Button hover/active */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn:hover,
+html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn:hover {
+  background: var(--hb-panel-hover) !important;
+  border-color: var(--hb-border) !important;
+  color: var(--hb-text-strong) !important;
+}
+
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn:active,
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.on,
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.on:hover {
+  background: var(--hb-accent-soft) !important;
+  border-color: var(--hb-link) !important;
+  color: var(--hb-link-hover) !important;
+  transform: translateY(1px) !important;
+}
+
+/* Icon inside button */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-inner {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  margin: 0 !important;
+}
+
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn .fonticon {
+  color: var(--hb-text) !important;
+  text-shadow: none !important;
+  font-size: 18px !important;
+  line-height: 1 !important;
+}
+
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn:hover .fonticon,
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.on .fonticon {
+  color: var(--hb-link-hover) !important;
+}
+
+/* Text buttons like H1/H2/H3 */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-text,
+html body .wysibb .wysibb-toolbar .modeSwitch .modesw {
+  color: var(--hb-text) !important;
+  font-family: var(--hb-font) !important;
+  font-weight: 700 !important;
+  line-height: 28px !important;
+  text-transform: none !important;
+}
+
+/* Tooltip */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-tooltip {
+  background: var(--hb-panel-3) !important;
+  color: var(--hb-text-strong) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+  box-shadow: var(--hb-shadow) !important;
+  padding: 5px 9px !important;
+  bottom: 36px !important;
+  z-index: 10000 !important;
+}
+
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn span.btn-tooltip ins {
+  border-top-color: var(--hb-panel-3) !important;
+}
+
+/* Dropdown lists */
+html body .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn .wbb-list {
+  background: var(--hb-panel) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius) !important;
+  box-shadow: var(--hb-shadow-strong) !important;
+  padding: 6px !important;
+  z-index: 10000 !important;
+}
+
+html body .wbb-select .option,
+html body .wbb-list .nc {
+  color: var(--hb-text) !important;
+  border-radius: var(--hb-radius-sm) !important;
+}
+
+html body .wbb-select .option:hover,
+html body .wbb-list .nc:hover {
+  background: var(--hb-panel-hover) !important;
+  color: var(--hb-text-strong) !important;
+}
+
+html body .wbb-select .option.selected {
+  background: var(--hb-accent) !important;
+  color: #ffffff !important;
+}
+
+/* Color picker squares */
+html body .wbb-list .sc {
+  border: 1px solid var(--hb-border) !important;
+  border-radius: 5px !important;
+}
+
+html body .wbb-list .sc:hover {
+  border-color: var(--hb-link) !important;
+  box-shadow: 0 0 0 2px var(--hb-accent-soft) !important;
+}
+
+/* Bottom resize line */
+html body .wysibb .bottom-resize-line {
+  background: var(--hb-panel-2) !important;
+  border-top: 1px solid var(--hb-border) !important;
+}
+
+html body .wysibb .bottom-resize-line:hover,
+html body .wysibb .bottom-resize-line.drag {
+  background: var(--hb-panel-hover) !important;
+}
+
+/* WysiBB modal */
+html body #wbbmodal {
+  background: rgba(1, 4, 9, 0.72) !important;
+  backdrop-filter: blur(4px);
+}
+
+html body #wbbmodal .wbbm {
+  background: var(--hb-panel) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-lg) !important;
+  box-shadow: var(--hb-shadow-strong) !important;
+  overflow: hidden !important;
+}
+
+html body #wbbmodal .wbbm-title {
+  background: linear-gradient(180deg, var(--hb-panel-3), var(--hb-panel)) !important;
+  color: var(--hb-text-strong) !important;
+  border-bottom: 1px solid var(--hb-border) !important;
+}
+
+html body #wbbmodal .wbbm-title .wbbclose {
+  color: var(--hb-muted) !important;
+}
+
+html body #wbbmodal .wbbm-title .wbbclose:hover {
+  color: var(--hb-danger) !important;
+}
+
+html body #wbbmodal .wbbm-cont,
+html body #wbbmodal .wbbm-tablist {
+  background: var(--hb-panel) !important;
+  color: var(--hb-text) !important;
+}
+
+html body #wbbmodal .wbbm-tablist ul li {
+  border-radius: var(--hb-radius-sm) !important;
+  color: var(--hb-text) !important;
+}
+
+html body #wbbmodal .wbbm-tablist ul li:hover {
+  background: var(--hb-panel-hover) !important;
+}
+
+html body #wbbmodal .wbbm-tablist ul li.on,
+html body #wbbmodal .wbbm-tablist ul li.on:hover {
+  background: var(--hb-accent) !important;
+  color: #ffffff !important;
+}
+
+html body #wbbmodal .wbbm-bottom {
+  background: var(--hb-panel-2) !important;
+  border-top: 1px solid var(--hb-border) !important;
+}
+
+html body #wbbmodal input,
+html body #wbbmodal .div-modal-text {
+  background: var(--hb-bg) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+}
+
+html body #wbbmodal .wbb-button {
+  background: #238636 !important;
+  color: #ffffff !important;
+  border: 1px solid var(--hb-success) !important;
+  border-radius: var(--hb-radius-sm) !important;
+}
+
+html body #wbbmodal .wbb-button:hover {
+  background: var(--hb-success-hover) !important;
+}
+
+html body #wbbmodal .wbb-cancel-button {
+  background: var(--hb-panel-3) !important;
+  color: var(--hb-text) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+}
+
+html body #wbbmodal .wbb-cancel-button:hover {
+  background: var(--hb-panel-hover) !important;
+}
+
+html body #wbbmodal .wbb-remove-button {
+  background: #da3633 !important;
+  color: #ffffff !important;
+  border: 1px solid var(--hb-danger) !important;
+  border-radius: var(--hb-radius-sm) !important;
+}
+
+html body #wbbmodal .wbb-remove-button:hover {
+  background: var(--hb-danger-hover) !important;
+}
