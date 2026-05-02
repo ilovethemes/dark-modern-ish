@@ -1,25 +1,42 @@
-@import url("./common.css");
-
-/* ===== Dark Modern Ish - Orange Accent ===== */
-/* High-contrast orange accent. Semantic colors remain defined in common.css:
-   success/download = green, danger/report = red, warning/freeleech = yellow,
-   leeching/new = orange, permission ranks = rank-specific colors. */
+@import url("./dark-modern-ish-common.css");
 
 :root {
-  /* Main theme accent */
+  --hb-bg: #100f0d;
+  --hb-bg-soft: #15120e;
+  --hb-panel: #191612;
+  --hb-panel-2: #211b14;
+  --hb-panel-3: #2a2118;
+  --hb-panel-hover: #332719;
+  --hb-border: #4a3320;
+  --hb-border-soft: #2b2219;
+
+  --hb-text: #e7ded1;
+  --hb-text-strong: #fff7ed;
+  --hb-muted: #aa9b88;
+
+  --hb-link: #fb923c;
+  --hb-link-hover: #fdba74;
+
   --hb-accent: #f97316;
   --hb-accent-hover: #fb923c;
-  --hb-accent-soft: rgba(249, 115, 22, 0.20);
-  --hb-accent-border: rgba(251, 146, 60, 0.55);
+  --hb-accent-soft: rgba(249, 115, 22, 0.22);
+  --hb-accent-border: rgba(251, 146, 60, 0.58);
 
-  /* Links stay blue for readability and recognition */
-  --hb-link: #60a5fa;
-  --hb-link-hover: #93c5fd;
+  --hb-button-primary-bg: #ea580c;
+  --hb-button-primary-bg-hover: #fb923c;
+  --hb-button-primary-border: rgba(251, 146, 60, 0.58);
+  --hb-button-primary-text: #ffffff;
 
-  /* Selection should follow the theme accent */
-  --hb-selection-bg: rgba(249, 115, 22, 0.35);
+  --hb-focus-border: #fb923c;
+  --hb-focus-shadow: rgba(249, 115, 22, 0.22);
+
+  --hb-pill-hover-bg: rgba(249, 115, 22, 0.22);
+  --hb-pill-hover-text: #fdba74;
+  --hb-pill-hover-border: rgba(251, 146, 60, 0.58);
+
+  --hb-nav-active-color: #fdba74;
+  --hb-nav-active-border: #f97316;
+
+  --hb-selection-bg: rgba(249, 115, 22, 0.38);
   --hb-selection-text: #ffffff;
-
-  /* Focus ring uses the accent but keeps enough contrast */
-  --hb-focus-ring: rgba(249, 115, 22, 0.28);
 }
