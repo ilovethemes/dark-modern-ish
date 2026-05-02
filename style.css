@@ -1293,3 +1293,25 @@ html body .wysibb .wysibb-toolbar .modeSwitch .wysibb-toolbar-btn span.btn-toolt
   border-bottom: 7px solid var(--hb-panel-3) !important;
   border-top: 0 !important;
 }
+
+/* ===== Preserve highlighted donation link ===== */
+
+html body #menu ul > li#nav_donate > a,
+html body #menu ul > li#nav_donate > a:link,
+html body #menu ul > li#nav_donate > a:visited,
+html body li#nav_donate > a,
+html body li#nav_donate > a:link,
+html body li#nav_donate > a:visited,
+html body a[href="/donate.php"],
+html body a[href="donate.php"] {
+  color: #ff807b !important;
+  font-weight: 700 !important;
+}
+
+html body #menu ul > li#nav_donate > a:hover,
+html body li#nav_donate > a:hover,
+html body a[href="/donate.php"]:hover,
+html body a[href="donate.php"]:hover {
+  color: #ff9b96 !important;
+  text-shadow: 0 0 8px rgba(255, 128, 123, 0.35) !important;
+}
