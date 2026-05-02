@@ -30,6 +30,29 @@
   --hb-shadow-strong: 0 14px 34px rgba(0, 0, 0, 0.38);
   --hb-font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;
   --hb-mono: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  /* User class / permission colors - dark-theme adjusted */
+  --hb-perm-staff: #38bdf8;
+  
+  --hb-perm-1000-sysop: #ff4d5e;
+  --hb-perm-900-staff-leader: #ff4f73;
+  --hb-perm-800-admin: #38bdf8;
+  --hb-perm-700-coder: #f97316;
+  --hb-perm-600-moderator: #e879f9;
+  --hb-perm-450-fls: #66ccff;
+  --hb-perm-400-designer: #ff4db8;
+  --hb-perm-205-uploader: #22c55e;
+  --hb-perm-200-mini-uploader: #00ff99;
+  --hb-perm-150-staff-legend: #ff9900;
+  --hb-perm-100-vip: #fff300;
+  
+  --hb-perm-17-heb-god: #66cc99;
+  --hb-perm-16-heb-supreme: #d6a84a;
+  --hb-perm-15-heb-elite: #b6f542;
+  --hb-perm-14-heb-fanatic: #7cff3a;
+  --hb-perm-13-heb-veteran: #22c55e;
+  --hb-perm-12-heb-lover: #16a34a;
+  --hb-perm-11-heb-user: #cbd5e1;
+  --hb-perm-10-heb-rookie: #9ca3af;
 }
 
 html,
@@ -1622,4 +1645,246 @@ html body .torrent_table .tl_leeching,
 html body .torrent_table strong.tl_leeching {
   color: var(--hb-leeching) !important;
   -webkit-text-fill-color: var(--hb-leeching) !important;
+}
+
+/* ===== User permission colors - preserve ranks everywhere ===== */
+
+/* Base behavior for all permission/user-class links */
+html body a[class*="permission_"],
+html body span[class*="permission_"],
+html body strong[class*="permission_"],
+html body .forum_post a[class*="permission_"],
+html body .forum_post span[class*="permission_"],
+html body .forum_post strong[class*="permission_"],
+html body td a[class*="permission_"],
+html body td span[class*="permission_"],
+html body #userinfo a[class*="permission_"],
+html body #userinfo_minor a[class*="permission_"],
+html body #userinfo_major a[class*="permission_"],
+html body #userinfo_stats a[class*="permission_"],
+html body .sidebar a[class*="permission_"],
+html body .sidebar span[class*="permission_"] {
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55) !important;
+}
+
+/* Make nested text inherit the permission color */
+html body a[class*="permission_"] *,
+html body span[class*="permission_"] *,
+html body strong[class*="permission_"] * {
+  color: inherit !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+/* Staff */
+html body .permission_staff,
+html body a.permission_staff,
+html body span.permission_staff,
+html body strong.permission_staff,
+html body .forum_post a.permission_staff {
+  color: var(--hb-perm-staff) !important;
+  -webkit-text-fill-color: var(--hb-perm-staff) !important;
+}
+
+/* SYSOP */
+html body .permission_1000,
+html body a.permission_1000,
+html body span.permission_1000,
+html body strong.permission_1000,
+html body .forum_post a.permission_1000 {
+  color: var(--hb-perm-1000-sysop) !important;
+  -webkit-text-fill-color: var(--hb-perm-1000-sysop) !important;
+}
+
+/* STAFF LEADER */
+html body .permission_900,
+html body a.permission_900,
+html body span.permission_900,
+html body strong.permission_900,
+html body .forum_post a.permission_900 {
+  color: var(--hb-perm-900-staff-leader) !important;
+  -webkit-text-fill-color: var(--hb-perm-900-staff-leader) !important;
+}
+
+/* ADMINISTRATOR */
+html body .permission_800,
+html body a.permission_800,
+html body span.permission_800,
+html body strong.permission_800,
+html body .forum_post a.permission_800 {
+  color: var(--hb-perm-800-admin) !important;
+  -webkit-text-fill-color: var(--hb-perm-800-admin) !important;
+}
+
+/* CODER */
+html body .permission_700,
+html body a.permission_700,
+html body span.permission_700,
+html body strong.permission_700,
+html body .forum_post a.permission_700 {
+  color: var(--hb-perm-700-coder) !important;
+  -webkit-text-fill-color: var(--hb-perm-700-coder) !important;
+}
+
+/* MODERATOR */
+html body .permission_600,
+html body a.permission_600,
+html body span.permission_600,
+html body strong.permission_600,
+html body .forum_post a.permission_600 {
+  color: var(--hb-perm-600-moderator) !important;
+  -webkit-text-fill-color: var(--hb-perm-600-moderator) !important;
+}
+
+/* FLS */
+html body .permission_450,
+html body a.permission_450,
+html body span.permission_450,
+html body strong.permission_450,
+html body .forum_post a.permission_450 {
+  color: var(--hb-perm-450-fls) !important;
+  -webkit-text-fill-color: var(--hb-perm-450-fls) !important;
+}
+
+/* DESIGNER */
+html body .permission_400,
+html body a.permission_400,
+html body span.permission_400,
+html body strong.permission_400,
+html body .forum_post a.permission_400 {
+  color: var(--hb-perm-400-designer) !important;
+  -webkit-text-fill-color: var(--hb-perm-400-designer) !important;
+}
+
+/* UPLOADER */
+html body .permission_205,
+html body a.permission_205,
+html body span.permission_205,
+html body strong.permission_205,
+html body .forum_post a.permission_205 {
+  color: var(--hb-perm-205-uploader) !important;
+  -webkit-text-fill-color: var(--hb-perm-205-uploader) !important;
+}
+
+/* MINI UPLOADER */
+html body .permission_200,
+html body a.permission_200,
+html body span.permission_200,
+html body strong.permission_200,
+html body .forum_post a.permission_200 {
+  color: var(--hb-perm-200-mini-uploader) !important;
+  -webkit-text-fill-color: var(--hb-perm-200-mini-uploader) !important;
+}
+
+/* STAFF LEGEND */
+html body .permission_150,
+html body a.permission_150,
+html body span.permission_150,
+html body strong.permission_150,
+html body .forum_post a.permission_150 {
+  color: var(--hb-perm-150-staff-legend) !important;
+  -webkit-text-fill-color: var(--hb-perm-150-staff-legend) !important;
+}
+
+/* VIP */
+html body .permission_100,
+html body a.permission_100,
+html body span.permission_100,
+html body strong.permission_100,
+html body .forum_post a.permission_100 {
+  color: var(--hb-perm-100-vip) !important;
+  -webkit-text-fill-color: var(--hb-perm-100-vip) !important;
+}
+
+/* HEB GOD */
+html body .permission_17,
+html body a.permission_17,
+html body span.permission_17,
+html body strong.permission_17,
+html body .forum_post a.permission_17 {
+  color: var(--hb-perm-17-heb-god) !important;
+  -webkit-text-fill-color: var(--hb-perm-17-heb-god) !important;
+}
+
+/* HEB SUPREME */
+html body .permission_16,
+html body a.permission_16,
+html body span.permission_16,
+html body strong.permission_16,
+html body .forum_post a.permission_16 {
+  color: var(--hb-perm-16-heb-supreme) !important;
+  -webkit-text-fill-color: var(--hb-perm-16-heb-supreme) !important;
+}
+
+/* HEB ELITE */
+html body .permission_15,
+html body a.permission_15,
+html body span.permission_15,
+html body strong.permission_15,
+html body .forum_post a.permission_15 {
+  color: var(--hb-perm-15-heb-elite) !important;
+  -webkit-text-fill-color: var(--hb-perm-15-heb-elite) !important;
+}
+
+/* HEB FANATIC */
+html body .permission_14,
+html body a.permission_14,
+html body span.permission_14,
+html body strong.permission_14,
+html body .forum_post a.permission_14 {
+  color: var(--hb-perm-14-heb-fanatic) !important;
+  -webkit-text-fill-color: var(--hb-perm-14-heb-fanatic) !important;
+}
+
+/* HEB VETERAN */
+html body .permission_13,
+html body a.permission_13,
+html body span.permission_13,
+html body strong.permission_13,
+html body .forum_post a.permission_13 {
+  color: var(--hb-perm-13-heb-veteran) !important;
+  -webkit-text-fill-color: var(--hb-perm-13-heb-veteran) !important;
+}
+
+/* HEB LOVER */
+html body .permission_12,
+html body a.permission_12,
+html body span.permission_12,
+html body strong.permission_12,
+html body .forum_post a.permission_12 {
+  color: var(--hb-perm-12-heb-lover) !important;
+  -webkit-text-fill-color: var(--hb-perm-12-heb-lover) !important;
+}
+
+/* HEB USER */
+html body .permission_11,
+html body a.permission_11,
+html body span.permission_11,
+html body strong.permission_11,
+html body .forum_post a.permission_11 {
+  color: var(--hb-perm-11-heb-user) !important;
+  -webkit-text-fill-color: var(--hb-perm-11-heb-user) !important;
+  font-weight: 700 !important;
+}
+
+/* HEB ROOKIE */
+html body .permission_10,
+html body a.permission_10,
+html body span.permission_10,
+html body strong.permission_10,
+html body .forum_post a.permission_10 {
+  color: var(--hb-perm-10-heb-rookie) !important;
+  -webkit-text-fill-color: var(--hb-perm-10-heb-rookie) !important;
+}
+
+/* Hover: do not turn usernames into generic blue links */
+html body a[class*="permission_"]:hover,
+html body .forum_post a[class*="permission_"]:hover,
+html body td a[class*="permission_"]:hover,
+html body #userinfo a[class*="permission_"]:hover,
+html body .sidebar a[class*="permission_"]:hover {
+  color: currentColor !important;
+  -webkit-text-fill-color: currentColor !important;
+  text-decoration: none !important;
+  filter: brightness(1.18) saturate(1.08) !important;
 }
