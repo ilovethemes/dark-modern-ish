@@ -857,8 +857,8 @@ html body .filter_torrents div.submit.ft_submit input[type="button"],
 html body .submit.ft_submit input[type="submit"],
 html body .submit.ft_submit input[type="button"] {
   background: var(--hb-button-primary-bg) !important;
-  color: var(--hb-white) !important;
-  border: 1px solid var(--hb-success) !important;
+  color: var(--hb-button-primary-text) !important;
+  border: 1px solid var(--hb-button-primary-border) !important;
   border-radius: var(--hb-radius-sm) !important;
   font-weight: 650 !important;
 }
@@ -867,8 +867,9 @@ html body .filter_torrents div.submit.ft_submit input[type="submit"]:hover,
 html body .filter_torrents div.submit.ft_submit input[type="button"]:hover,
 html body .submit.ft_submit input[type="submit"]:hover,
 html body .submit.ft_submit input[type="button"]:hover {
-  background: var(--hb-success-hover) !important;
-  color: var(--hb-white) !important;
+  background: var(--hb-button-primary-bg-hover) !important;
+  border-color: var(--hb-button-primary-border) !important;
+  color: var(--hb-button-primary-text) !important;
 }
 
 /* Seeding - always green */
